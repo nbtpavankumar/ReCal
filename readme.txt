@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=c:\ReCALLibs-1.0.jar -DgroupId=ReCALLibs -DartifactId=ReCALLibs -Dversion=1.0 -Dpackaging=jar
