@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+<meta name='apple-mobile-web-app-capable' content='yes'/>
+<title>Browse Investmen</title>
+<link href="css/admin.css" media="screen" rel="stylesheet"/>
+<link href="css/fonts.css" media="screen" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="css/datatables.min.css"/> 
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="Font-Awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="css/build.css"/> 
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script type="text/jscript">
+(function($) {
+$.fn.menumaker = function(options) {  
+ var cssmenu = $(this), settings = $.extend({
+   format: "dropdown",
+   sticky: false
+ }, options);
+ return this.each(function() {
+   $(this).find(".button").on('click', function(){
+     $(this).toggleClass('menu-opened');
+     var mainmenu = $(this).next('ul');
+     if (mainmenu.hasClass('open')) { 
+       mainmenu.slideToggle().removeClass('open');
+     }
+     else {
+       mainmenu.slideToggle().addClass('open');
+       if (settings.format === "dropdown") {
+         mainmenu.find('ul').show();
+       }
+     }
+   });
+   cssmenu.find('li ul').parent().addClass('has-sub');
+multiTg = function() {
+     cssmenu.find(".has-sub").prepend('<span class="submenu-button"></span>');
+     cssmenu.find('.submenu-button').on('click', function() {
+       $(this).toggleClass('submenu-opened');
+       if ($(this).siblings('ul').hasClass('open')) {
+         $(this).siblings('ul').removeClass('open').slideToggle();
+       }
+       else {
+         $(this).siblings('ul').addClass('open').slideToggle();
+       }
+     });
+   };
+   if (settings.format === 'multitoggle') multiTg();
+   else cssmenu.addClass('dropdown');
+   if (settings.sticky === true) cssmenu.css('position', 'fixed');
+resizeFix = function() {
+  var mediasize = 630;
+     if ($( window ).width() > mediasize) {
+       cssmenu.find('ul').show();
+     }
+     if ($(window).width() <= mediasize) {
+       cssmenu.find('ul').hide().removeClass('open');
+     }
+   };
+   resizeFix();
+   return $(window).on('resize', resizeFix);
+ });
+  };
+})(jQuery);
+
+(function($){
+$(document).ready(function(){
+$("#cssmenu").menumaker({
+   format: "multitoggle"
+});
+});
+})(jQuery);
+
+</script>
+
+<script type="text/javascript" src="js/datatables.min.js"></script>        
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {
+				$('#example').DataTable();
+			} );
+		</script>
+
+
+</head>
+
+<body>
+<div class="header_top">
+  <div class="ht_inner">
+  <div class="investor_logo"><a href="#"><img src="images/Ringgernsen_logo.png" /></a></div>   
+  <div class="investor_menu">
+  <header>
+<nav id='cssmenu'>
+<div class="logo_menu"><a href="#">Responsive </a></div>
+<div id="head-mobile"></div>
+<div class="button"></div>
+<ul>
+<li><a href='Dashboard.html'>Dashboard</a></li>
+<li class='active'><a href='Browse_investment.html'>Browse Investment</a></li>
+<li><a href='My_investment.html'>My Investment</a></li>
+<li><a href='My_profile.html'>My Profile</a> </li>
+<li><a href='Transfer.html'>Transfer</a></li>
+<li><a href='#'>Sign Out</a></li>
+
+</ul>
+</nav>
+</header>
+  
+  </div>
+  
+  <div class="clear"></div>
+  </div>
+</div>
+<div class="content_area">
+<div class="content_inner">  
+  <div class="content_box_wrap">
+  <div class="content_heading"><img src="images/browse_investment_icon.png"> &nbsp;Browse Investment</div>    
+  <div class="cb_mid">
+    <div class="browse_invest_left">
+      <div class="bri_box1">
+        <div class="bri_box_inner">
+          <div class="bri_box_heading">Build a Portfolio</div>          
+          <div class="browse_invest_right">Available Cash : $84,880.17</div>
+        </div>
+      </div>      
+      <div class="bri_box2">
+        <div class="bri_box2_inner">
+          <div class="bri_box2_heading">Filter Loans</div>          
+          <div class="bri_box2_inside">
+            <div class="bri_box2_intrest_wrap">
+              <div class="bri_box2_sub_heading">Intrest</div>              
+              <div class="bri_box2_list">
+              <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox2" class="styled" type="checkbox" checked>
+                        <label for="checkbox2">
+                            All
+                        </label>
+                    </div>
+                    </div>
+              <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox3" class="styled" type="checkbox">
+                        <label for="checkbox3">                        
+              <span class="bri_box2_span bg_light_blue">A</span>
+                            3.90% - 14.90%
+                        </label>
+                    </div>
+                    </div>
+              <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox4" class="styled" type="checkbox">
+                        <label for="checkbox4">
+                           <span class="bri_box2_span bg_blue">B</span>
+                            4.10% - 15.60%
+                        </label>
+                    </div>
+                    </div>
+                    <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox5" class="styled" type="checkbox">
+                        <label for="checkbox5">
+                            <span class="bri_box2_span bg_green">C</span>
+                            4.30% - 16.10%
+                        </label>
+                    </div>
+                    </div>
+                    <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox6" class="styled" type="checkbox">
+                         <label for="checkbox6">
+                            <span class="bri_box2_span bg_light_green">D</span>
+                            4.50% - 16.60%
+                        </label>
+                        </label>
+                    </div>
+                    </div>
+                    <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox7" class="styled" type="checkbox">
+                        <label for="checkbox7">
+                         <span class="bri_box2_span bg_orange">E</span>
+                            4.60% - 17.10%
+                        </label>
+                    </div>
+                    </div>
+               
+              </div>
+            </div>
+            
+            <div class="bri_box2_term_wrap">
+              <div class="bri_box2_sub_heading">Terms</div>              
+              <div class="bri_box2_list">
+              <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox13" class="styled" type="checkbox" checked>
+                        <label for="checkbox13">
+                            All
+                        </label>
+                    </div>
+                    </div>
+              <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox8" class="styled" type="checkbox">
+                        <label for="checkbox8">                  
+                            6 Months
+                        </label>
+                    </div>
+                    </div>
+              <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox9" class="styled" type="checkbox">
+                        <label for="checkbox9">
+                            9 Months
+                        </label>
+                    </div>
+                    </div>
+                    <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox10" class="styled" type="checkbox">
+                        <label for="checkbox10">
+                            12 Months
+                        </label>
+                    </div>
+                    </div>
+                    <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox11" class="styled" type="checkbox">
+                       <label for="checkbox11">
+                            24 Months
+                        </label>
+                        </label>
+                    </div>
+                    </div>
+                    <div class="bri_box2_row">
+              <div class="checkbox checkbox-primary">
+                        <input id="checkbox12" class="styled" type="checkbox">
+                       <label for="checkbox12">
+                            36 Months
+                        </label>
+                    </div>
+                    </div>
+               
+              </div>
+            </div>
+            
+            <div class="bri_button"><a href="#" class="blue_bttn1">Update Results</a></div>
+          </div>
+        </div>
+      </div>
+    </div>    
+    <div class="browse_invest_right">
+    <div class="reshudle_wrap">
+    <div id="example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">   
+   <div class="row marg_top_10">
+      <div class="col-sm-12 table-responsive">
+         <table id="example" class="table table-striped table-bordered dataTable no-footer" cellspacing="0" width="100%" role="grid" aria-describedby="example_info" style="width: 100%;">
+            <thead>
+               <tr role="row">
+                  <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 250px;">Investment ($)</th>
+                  <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 120px;">Rate</th>
+                  <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width:150px;">Term</th>
+                  <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1"  style="width:150px;">Amount</th>
+                  <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 150px;">Profile</th>
+                  <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 150px;">% Funded</th>
+                  <th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width:150px;">Amount</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr role="row">
+                  <td class="">RM45,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row">
+                  <td class="">RM12,567.00</td>
+                  <td class="sorting_1">5.19%</td>
+                  <td>12 Month</td>
+                  <td>RM70,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row">
+                  <td class="">RM25,567.00</td>
+                  <td class="sorting_1">619%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row">
+                  <td class="">RM75,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row">
+                  <td class="">RM99,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row" >
+                  <td class="">RM53,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row">  
+                  <td class="">RM53,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>
+                <tr role="row">      
+                  <td class="">RM25,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row">  
+                  <td class="">RM78,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>    
+                <tr role="row">  
+                  <td class="">RM124,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>   
+                     <tr role="row">  
+                  <td class="">RM124,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr> 
+                     <tr role="row">  
+                  <td class="">RM124,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr> 
+                     <tr role="row">  
+                  <td class="">RM124,567.00</td>
+                  <td class="sorting_1">4.19%</td>
+                  <td>12 Month</td>
+                  <td>RM50,490.00</td>
+                  <td class="">Lorem Ipsum</td>
+                  <td class="sorting_1">Lorem Ipsum</td>
+                  <td>RM50,490.00</td>
+               </tr>             
+            </tbody>
+         </table>
+      </div>
+   </div>
+   
+</div>
+    </div>
+    </div>
+  </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+</div>
+<script type="text/javascript">
+	// For demo to fit into DataTables site builder...
+	$('#example')
+		.removeClass( 'display' )
+		.addClass('table table-striped table-bordered');
+</script>
+</body>
+</html>
