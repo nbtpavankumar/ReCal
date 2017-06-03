@@ -1,4 +1,4 @@
-package com.dhruthi.recal.controller;
+package com.dhriti.recal.controller;
 
 
 import org.springframework.stereotype.Controller;
