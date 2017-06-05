@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ include file="/WEB-INF/jsp/admin/includes/header.jsp" %>
+ <%@ include file="/WEB-INF/admin/includes/header.jsp" %>
  
 <div id="middle_content_area">
         <div class="login_content_area container-fluid">
@@ -56,4 +56,4 @@
         </div>
     </div>
     
-    <%@ include file="/WEB-INF/jsp/admin/includes/footer.jsp" %>
+    <%@ include file="/WEB-INF/admin/includes/footer.jsp" %>

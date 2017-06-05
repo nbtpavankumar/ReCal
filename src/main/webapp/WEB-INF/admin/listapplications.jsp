@@ -1,5 +1,5 @@
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ include file="/WEB-INF/jsp/admin/includes/header1.jsp" %>
+ <%@ include file="/WEB-INF/admin/includes/header1.jsp" %>
  
  
  <div class="content_area">
@@ -133,4 +133,4 @@
     </script>
     
     
-      <%@ include file="/WEB-INF/jsp/admin/includes/footer1.jsp" %>
+      <%@ include file="/WEB-INF/admin/includes/footer1.jsp" %>

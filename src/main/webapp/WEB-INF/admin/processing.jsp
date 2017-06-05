@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ include file="/WEB-INF/jsp/admin/includes/header1.jsp" %>
+ <%@ include file="/WEB-INF/admin/includes/header1.jsp" %>
  
  
     
