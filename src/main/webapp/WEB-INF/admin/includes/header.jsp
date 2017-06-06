@@ -29,7 +29,7 @@
     <!-- JS Core -->
 
     <script type="text/javascript" src="<c:url value="/resources/adminassets/js/jquery-3.1.1.min.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/resources/adminassets/assets/js-core/modernizr.js" />"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     <script type="text/javascript" src="<c:url value="/resources/adminassets/js/js.cookie.js" />"></script>
     <script type="text/javascript" src="<c:url value="/resources/adminassets/js/functions.js" />"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js" ></script>

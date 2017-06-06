@@ -406,7 +406,7 @@
             </section>
         </main>
     </div>
-    <script src="<c:url value="/resources//js/cleand.js" />">
+    <script src="<c:url value="/resources/js/cleand.js" />">
     </script>
     <script>
         window._satellite = window._satellite || {

@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <meta name='apple-mobile-web-app-capable' content='yes' />
     <title>AlphaCredits Dashboard</title>
-    <link href="<c:url value="/adminassets/css/style.css" />" media="screen" rel="stylesheet" />
-    <link href="<c:url value="/adminassets/css/fonts.css" />" media="screen" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="<c:url value="/adminassets/css/ddlevelsmenu-base.css" />" />
-    <link rel="stylesheet" type="text/css" href="<c:url value="/adminassets/css/datatables.min.css" />" />
+    <link href="<c:url value="/resources/adminassets/css/style.css" />" media="screen" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/fonts.css" />" media="screen" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/ddlevelsmenu-base.css" />" />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/datatables.min.css" />" />
     
-    <link href="<c:url value="/adminassets/css/material-design-iconic-font.min.css" />" rel="stylesheet" />
-    <link href="<c:url value="/adminassets/css/font-awesome.min.css" />" rel="stylesheet" />
-    <link href="<c:url value="/adminassets/css/responsive.css" />" rel="stylesheet" />
-    <link href="<c:url value="/adminassets/css/datepicker-min.css" />" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/material-design-iconic-font.min.css" />" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/font-awesome.min.css" />" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/responsive.css" />" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/datepicker-min.css" />" rel="stylesheet" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="<c:url value="/adminassets/js/js.cookie.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/adminassets/js/functions.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/js.cookie.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/functions.js" />"></script>
     <script type="text/javascript">
 	    
        //redirect to login page if not logged in 
@@ -86,14 +86,14 @@
         })(jQuery);
     </script>
 
-    <script type="text/javascript" src="<c:url value="/adminassets/js/bootstrap.min.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/adminassets/js/ddlevelsmenu.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap.min.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/ddlevelsmenu.js" />"></script>
     
-    <script type="text/javascript" src="<c:url value="/adminassets/js/datatables.min.js.download" />"></script>
-    <script type="text/javascript" src="<c:url value="/adminassets/js/notify.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/adminassets/js/moment.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/adminassets/js/daterangepicker.js" />"></script>
-    <script type="text/javascript" src="<c:url value="/adminassets/js/bootstrap-datepicker.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/datatables.min.js.download" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/notify.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/moment.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/daterangepicker.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap-datepicker.js" />"></script>
 
 
 </head>
@@ -102,12 +102,12 @@
     <div class="header_top">
         <div class="ht_inner">
             <div class="hti_logo">
-                <a href="#"><img src="<c:url value="/adminassets/images/Logo.png" />" /></a>
+                <a href="#"><img src="<c:url value="/resources/adminassets/images/Logo.png" />" /></a>
             </div>
             <div class="ht_user" id="ddtopmenubar">
                 <ul>
                     <li>
-                        <a href="#" rel="ddsubmenu3"><img src="<c:url value="/adminassets/images/user_icon.png" />" /></a>
+                        <a href="#" rel="ddsubmenu3"><img src="<c:url value="/resources/adminassets/images/user_icon.png" />" /></a>
                     </li>
                 </ul>
                 <script type="text/javascript">
@@ -125,7 +125,7 @@
                 <div id="head-mobile"></div>
                 <div class="button"></div>
                 <ul>
-                    <li <c:if test="${page == 'dashboard'}"> class='active' </c:if> ><a href='/admin/dashboard'>Dashboard</a></li>
+                    <li <c:if test="${page == 'dashboard'}"> class='active' </c:if> ><a href='/recal/admin/dashboard'>Dashboard</a></li>
                     <li <c:if test="${page == 'applications'}"> class='active' </c:if>><a href='#'>Application</a>
                         <ul>
                             <li><a href='/admin/applicationslist?searchval=Submitted'>Lists</a> </li>

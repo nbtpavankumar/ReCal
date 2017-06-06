@@ -5,7 +5,7 @@ function submitLogin()
 {
 	
 	 var siteurl = document.location.origin;
-	 var url = siteurl+"/admin/checklogin";
+	 var url = siteurl+"/recal/admin/checklogin";
 	 var loginid = document.getElementById("loginid").value;
 	 var password = document.getElementById("password").value;
 	 var rememberme = document.getElementById("rememberMe");
@@ -14,7 +14,8 @@ function submitLogin()
 	 document.getElementById("msg").style.display = '';
 	 
 	 //set loading bar
-	 document.getElementById("msg").innerHTML = '<img src='+siteurl+'/adminassets/images/loadingbar.gif >';
+	 
+	 document.getElementById("msg").innerHTML = '<img src=/recal/resources/adminassets/images/loadingbar.gif >';
 	 
 	$.ajax({
 		  type: "POST",
@@ -51,7 +52,7 @@ function submitLogin()
 				}
 				
 				//redirect on dashbaord
-				window.location.href = siteurl+"/admin/dashboard"; 
+				window.location.href = siteurl+"/recal/admin/dashboard"; 
 			  }
 			  else
 			  {
@@ -189,7 +190,7 @@ function isUserLoggedIn()
 	{
 		//redirect to login page
 		 var siteurl = document.location.origin;
-	     var url = siteurl+"/admin/dashboard";
+	     var url = siteurl+"/recal/admin/dashboard";
 		 window.location.href = url;
 		
 	}
@@ -244,7 +245,7 @@ function GPloginCallback(result)
 			var siteurl = document.location.origin;
 			 
 			//redirect on dashboard
-			window.location.href = siteurl+"/admin/dashboard"; 
+			window.location.href = siteurl+"/recal/admin/dashboard"; 
  
            
             
@@ -299,7 +300,7 @@ function fb_login(){
     			 var siteurl = document.location.origin;
     			 
     			//redirect on dashboard
-    			window.location.href = siteurl+"/admin/dashboard";
+    			window.location.href = siteurl+"/recal/admin/dashboard";
     			
             });
 

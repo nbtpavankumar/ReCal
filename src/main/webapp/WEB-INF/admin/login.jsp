@@ -44,7 +44,7 @@
                                 </div>
                                 <span class="or_text">Or</span>
                                 
-                                 <h3 class="form_box_subheading" style="color:#930;display:none" id="msg"><img src="<c:url value="/adminassets/images/loadingbar.gif" />"></h3>
+                                 <h3 class="form_box_subheading" style="color:#930;display:none" id="msg"><img src="<c:url value="/resources/adminassets/images/loadingbar.gif" />"></h3>
                                 <h3 class="form_box_subheading">Sign in with your Login ID.</h3>
                                 <div class="form-group clearfix">
                                     <label class="col-sm-3 nopadding-lr  control-label" for="exampleInputEmail1">Login ID</label>

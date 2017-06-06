@@ -17,7 +17,7 @@
 
 
     <!-- WIDGETS -->
-    <script type="text/javascript" src="<c:url value="/adminassets/js/bootstrap.min.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap.min.js" />"></script>
 
 </body>
 
