@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ReCAL.libs.PasswordUtil;
+import com.dhriti.recal.service.AdminService;
 
 /**
  * 
@@ -35,7 +36,7 @@ import com.ReCAL.libs.PasswordUtil;
 public class AdminController {
 
 	@Autowired
-	private Environment env;
+	AdminService adminService;
 
 	@GetMapping("/admin")
 	public String hello(Model model) {
@@ -49,12 +50,11 @@ public class AdminController {
 		String result = "";
 
 		try {
-			result = adminAuthentication(loginid, password);
+			result = adminService.adminAuthentication(loginid, password);
 		} catch (Exception exp) {
 			exp.printStackTrace();
 		}
 
-		// your logic here
 		return result;
 	}
 
@@ -62,132 +62,6 @@ public class AdminController {
 	public String dashboard(ModelMap model) {
 		model.addAttribute("page", "dashboard");
 		return "admin/dashboard";
-	}
-
-	public String adminAuthentication(String loginId, String password) {
-		String[] strAuthKey = getAuthKey().split(":");
-
-		String siteMode = env.getRequiredProperty("site.mode");
-		String userName = env.getRequiredProperty("api.username");
-		String pass = env.getRequiredProperty("api.password");
-
-		String apiUrl = "";
-
-		if (siteMode.equalsIgnoreCase("development"))
-			apiUrl = env.getRequiredProperty("api.dev.adminlogin.url");
-		else
-			apiUrl = env.getRequiredProperty("api.prod.adminlogin.url");
-
-		// create resteasy clinet
-		ResteasyClient client = new ResteasyClientBuilder().build();
-		ResteasyWebTarget target = client.target(apiUrl);
-		target.register(new BasicAuthentication(userName, pass));
-
-		String jsonRequest = "";
-		// AdminLoginObject alobj = new AdminLoginObject();
-
-		try {
-			PublicKey publicKey = PasswordUtil.generatePublicKey(strAuthKey[0]);
-
-			// create json string
-			jsonRequest = "{\"adminLoginId\": \"" + loginId + "\", \"password\": \""
-					+ PasswordUtil.toHex(PasswordUtil.encrypt(password.getBytes(), publicKey)) + "\"}";
-
-		} catch (Exception exp) {
-			exp.printStackTrace();
-		}
-
-		Response response = target.request().header("key", strAuthKey[0]).header("keyid", strAuthKey[1])
-				.post(Entity.entity(jsonRequest, javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE));
-
-		String result = response.readEntity(String.class);
-		// System.out.println(result);
-
-		response.close(); // You should close connections!
-
-		String status = "";
-		String msg = "";
-		String retResult = "";
-		long adminId = 0;
-
-		try {
-
-			// parse json to get key and keyid
-			JSONParser parser = new JSONParser();
-			JSONObject jsonObject = (JSONObject) parser.parse(result);
-
-			status = (String) jsonObject.get("serverStatus");
-			msg = (String) jsonObject.get("message");
-
-			JSONObject objDetails = (JSONObject) jsonObject.get("responseDetails");
-			adminId = (Long) objDetails.get("adminId");
-
-			// System.out.println("adminId"+adminId);
-
-			// check status and message
-			if (status.equalsIgnoreCase("SERVER_SUCCESS") && msg.equalsIgnoreCase("AUTHENTICATE_SUCCESS")) {
-				retResult = "success:" + adminId + ":" + strAuthKey[1];
-			} else {
-				retResult = "failure:0:";
-			}
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		return retResult;
-
-	}
-
-	public String getAuthKey() {
-
-		String siteMode = env.getRequiredProperty("site.mode");
-		String userName = env.getRequiredProperty("api.username");
-		String password = env.getRequiredProperty("api.password");
-
-		String apiUrl = "";
-
-		if (siteMode.equalsIgnoreCase("development"))
-			apiUrl = env.getRequiredProperty("api.dev.key.url");
-		else
-			apiUrl = env.getRequiredProperty("api.prod.key.url");
-
-		// create resteasy clinet
-		ResteasyClient client = new ResteasyClientBuilder().build();
-		ResteasyWebTarget target = client.target(apiUrl);
-		target.register(new BasicAuthentication(userName, password));
-
-		// send request and get response
-		Response response = target.request()
-				.post(Entity.entity(null, javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE));
-
-		String result = response.readEntity(String.class);
-
-		response.close(); // You should close connections!
-
-		String publickey = "";
-		String keyId = "";
-
-		try {
-
-			// parse json to get key and keyid
-			JSONParser parser = new JSONParser();
-			JSONObject jsonObject = (JSONObject) parser.parse(result);
-
-			// get response dtails
-			JSONObject responseDetails = (JSONObject) jsonObject.get("responseDetails");
-
-			publickey = (String) responseDetails.get("publicKey");
-			// keyId = String.valueOf(((Long)
-			// responseDetails.get("keyId")).intValue());
-			keyId = (String) responseDetails.get("keyId");
-
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-		return publickey + ":" + keyId;
-
 	}
 
 }
