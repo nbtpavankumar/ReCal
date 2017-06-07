@@ -36,7 +36,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/").setViewName("home");
 	}
-	
+
 	@Bean(name = "messageSource")
 	public ResourceBundleMessageSource resourceBundleMessageSource() {
 		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
