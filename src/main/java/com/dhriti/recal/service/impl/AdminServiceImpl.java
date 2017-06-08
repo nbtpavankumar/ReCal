@@ -1,6 +1,8 @@
 package com.dhriti.recal.service.impl;
 
 import java.security.PublicKey;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Response;
@@ -9,6 +11,7 @@ import org.jboss.resteasy.client.jaxrs.BasicAuthentication;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -151,5 +154,162 @@ public class AdminServiceImpl implements AdminService {
 
 		return publickey + ":" + keyId;
 
+	}
+
+	@Override
+	public String loanSummaryDetails(String uid, String keyId) {
+		String jsonResult = "";
+		String result = "";
+
+		try {
+
+			// String[] strAuthKey = getAuthKey().split(":");
+
+			String siteMode = env.getProperty("site.mode");
+			String userName = env.getProperty("api.username");
+			String pass = env.getProperty("api.password");
+
+			String apiUrl = "";
+
+			if (siteMode.equalsIgnoreCase("development"))
+				apiUrl = env.getProperty("api.dev.dashboard.loansummary.url");
+			else
+				apiUrl = env.getProperty("api.prod.dashboard.loansummary.url");
+
+			// create resteasy clinet
+			ResteasyClient client = new ResteasyClientBuilder().build();
+			ResteasyWebTarget target = client.target(apiUrl);
+			target.register(new BasicAuthentication(userName, pass));
+
+			Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+
+			jsonResult = response.readEntity(String.class);
+			response.close();
+
+			// parse json to get key and keyid
+			JSONParser parser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
+
+			if (jsonObject.get("responseDetails") != null) {
+
+				// get response dtails
+				JSONArray arrApps = (JSONArray) jsonObject.get("responseDetails");
+
+				// read all objects
+				for (int iCnt = 0; iCnt < arrApps.size(); iCnt++) {
+					// get json object
+					JSONArray arrRow = (JSONArray) arrApps.get(iCnt);
+
+					String status = "";
+					long total = 0;
+
+					// get data
+					if (arrRow.get(0) != null)
+						status = (String) arrRow.get(0);
+
+					if (arrRow.get(1) != null)
+						total = (Long) arrRow.get(1);
+
+					result += "<tr><td><a href='javascript:showApplicationsByStatus(\"" + status + "\")'>" + status
+							+ "</a></td><td>" + total + "</td></tr>";
+
+				}
+
+			} // end if
+
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}
+		return result;
+
+	}
+
+	@Override
+	public String recentApplicationDetails(String uid, String keyId) {
+		String jsonResult = "";
+
+		String result = "";
+		try {
+
+			// String[] strAuthKey = getAuthKey().split(":");
+
+			String siteMode = env.getProperty("site.mode");
+			String userName = env.getProperty("api.username");
+			String pass = env.getProperty("api.password");
+
+			String apiUrl = "";
+
+			if (siteMode.equalsIgnoreCase("development"))
+				apiUrl = env.getProperty("api.dev.dashboard.recentapps.url");
+			else
+				apiUrl = env.getProperty("api.prod.dashboard.recentapps.url");
+
+			// create resteasy clinet
+			ResteasyClient client = new ResteasyClientBuilder().build();
+			ResteasyWebTarget target = client.target(apiUrl);
+			target.register(new BasicAuthentication(userName, pass));
+
+			Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+
+			jsonResult = response.readEntity(String.class);
+
+			// System.out.println("json"+jsonResult);
+			response.close(); // You should close connections!
+
+			// parse json to get key and keyid
+			JSONParser parser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
+
+			if (jsonObject.get("responseDetails") != null) {
+				// get response dtails
+				JSONArray arrApps = (JSONArray) jsonObject.get("responseDetails");
+
+				// read all objects
+				for (int iCnt = 0; iCnt < arrApps.size(); iCnt++) {
+					// get json object
+					JSONObject objRow = (JSONObject) arrApps.get(iCnt);
+
+					// get data
+
+					String loanId = "";
+					double amount = 0.00;
+					long processDate = 0;
+					String status = "";
+					long submissionDate = 0;
+
+					// check null
+					if (objRow.get("loanId") != null)
+						loanId = (String) objRow.get("loanId");
+
+					if (objRow.get("loanAmount") != null)
+						amount = (Double) objRow.get("loanAmount");
+
+					if (objRow.get("processedDate") != null)
+						processDate = (Long) objRow.get("processedDate");
+
+					if (objRow.get("status") != null)
+						status = (String) objRow.get("status");
+
+					if (objRow.get("submissionDate") != null)
+						submissionDate = (Long) objRow.get("submissionDate");
+
+					SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+					Date dtProcess = new Date(processDate);
+					Date dtSubmit = new Date(submissionDate);
+
+					result += "<tr><td><a href='/admin/processing?appnum=" + loanId + "'>" + loanId + "</a></td><td>RM "
+							+ amount + "</td><td>" + sdf.format(dtProcess) + "</td><td>" + status + "</td><td>"
+							+ sdf.format(dtSubmit) + "</td></tr>";
+
+				}
+
+			} // end if
+
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}
+
+		// your logic here
+		return result;
 	}
 }

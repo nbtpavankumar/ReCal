@@ -25,7 +25,7 @@ public class AdminController {
 	AdminService adminService;
 
 	@GetMapping("/admin")
-	public String hello(Model model) {
+	public String adminLogin(Model model) {
 		return "admin/login";
 	}
 
@@ -48,6 +48,41 @@ public class AdminController {
 	public String dashboard(ModelMap model) {
 		model.addAttribute("page", "dashboard");
 		return "admin/dashboard";
+	}
+
+	@RequestMapping(value = "/admin/applicationslist", method = RequestMethod.GET)
+	public String applicationslist(@RequestParam String searchval, ModelMap model) {
+		model.addAttribute("page", "applications");
+		model.addAttribute("search", searchval);
+		return "admin/listapplications";
+	}
+
+	@RequestMapping(value = "/admin/loansummary", method = RequestMethod.POST)
+	@ResponseBody
+	public String loansummary(@RequestParam String uid, @RequestParam String keyId) {
+
+		String result = "";
+		try {
+			result = adminService.loanSummaryDetails(uid, keyId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@RequestMapping(value = "/admin/recentapplications", method = RequestMethod.POST)
+	@ResponseBody
+	public String recentapps(@RequestParam String uid, @RequestParam String keyId) {
+
+		String result = "";
+		try {
+			result = adminService.recentApplicationDetails(uid, keyId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
 	}
 
 }

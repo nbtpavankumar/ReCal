@@ -70,7 +70,7 @@ function submitLogin()
 function getRecentApplicatons()
 {
 	 var siteurl = document.location.origin;
-	 var url = siteurl+"/admin/recentapplications";
+	 var url = siteurl+"/recal/admin/recentapplications";
 	 var uid = Cookies.get('uid');
 	 var keyId = Cookies.get('keyId');
 	 
@@ -91,7 +91,7 @@ function getRecentApplicatons()
 function getLoanSummary()
 {
 	 var siteurl = document.location.origin;
-	 var url = siteurl+"/admin/loansummary";
+	 var url = siteurl+"/recal/admin/loansummary";
 	 
 	 var uid = Cookies.get('uid');
 	 var keyId = Cookies.get('keyId');
@@ -157,7 +157,7 @@ function siteLogOut()
 	
 	//redirect to login page
 	 var siteurl = document.location.origin;
-	 var url = siteurl+"/admin/login";
+	 var url = siteurl+"recal/admin/login";
 	 window.location.href = url;
 }
 
