@@ -58,8 +58,7 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/admin/loansummary", method = RequestMethod.POST)
-	@ResponseBody
-	public String loansummary(@RequestParam String uid, @RequestParam String keyId) {
+	@ResponseBody String loansummary(@RequestParam String uid, @RequestParam String keyId) {
 
 		String result = "";
 		try {

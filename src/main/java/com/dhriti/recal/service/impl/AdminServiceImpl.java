@@ -162,8 +162,7 @@ public class AdminServiceImpl implements AdminService {
 		String result = "";
 
 		try {
-
-			// String[] strAuthKey = getAuthKey().split(":");
+			String[] strAuthKey = getAuthKey().split(":");
 
 			String siteMode = env.getProperty("site.mode");
 			String userName = env.getProperty("api.username");
@@ -183,6 +182,10 @@ public class AdminServiceImpl implements AdminService {
 
 			Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
 
+			if (response.getStatus() != 200) {
+				throw new Exception(
+						"Failed : HTTP error code : " + response.getStatus() + " " + response.readEntity(String.class));
+			}
 			jsonResult = response.readEntity(String.class);
 			response.close();
 
@@ -250,6 +253,10 @@ public class AdminServiceImpl implements AdminService {
 			target.register(new BasicAuthentication(userName, pass));
 
 			Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+			
+			if (response.getStatus() != 200) {
+				throw new Exception("Failed : HTTP error code : " + response.getStatus() + " " + response.readEntity(String.class));
+			}
 
 			jsonResult = response.readEntity(String.class);
 
