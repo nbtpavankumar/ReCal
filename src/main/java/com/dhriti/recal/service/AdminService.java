@@ -30,4 +30,13 @@ public interface AdminService {
 	 */
 	public String recentApplicationDetails(String uid, String keyId);
 
+	/**
+	 * 
+	 * @param searchval
+	 * @param uid
+	 * @param keyId
+	 * @return
+	 */
+	public String loanDetailsbyStatus(String searchval, String uid, String keyId);
+
 }

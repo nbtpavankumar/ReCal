@@ -82,7 +82,7 @@
         	
         	  var siteurl = document.location.origin;
        	      //var url = siteurl+"/admin/listapplications?searchval=${search}";
-       	      var url = siteurl+"/admin/listapplications";
+       	      var url = siteurl+"/recal/admin/listapplications";
        	      var uid = Cookies.get('uid');
       	      var keyId = Cookies.get('keyId');
        	     
@@ -107,7 +107,7 @@
         {
         	 var siteurl = document.location.origin;
         	 //var searchurl = siteurl+"/admin/searchapplications?searchval="+value;
-        	 var searchurl = siteurl+"/admin/searchapplications";
+        	 var searchurl = siteurl+"recal/admin/searchapplications";
         	 var uid = Cookies.get('uid');
      	     var keyId = Cookies.get('keyId');
         	

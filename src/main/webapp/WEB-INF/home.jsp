@@ -67,12 +67,12 @@
         <div class="header_new">
             <div class="ringgetnsen_logo">
                 <a href="/home">
-                    <img src="<c:url value="/resources//images/Ringgernsen_logo.png" />">
+                    <img src="<c:url value="/resources/images/Ringgernsen_logo.png" />">
                 </a>
             </div>
             <div class="header_right">
                 <div class="apply_button">
-                    <a href="#">Apply Now
+                    <a href="signUp">Apply Now
             </a>
                 </div>
                 <div class="sign_in_button">
@@ -107,7 +107,7 @@
                                     <div class="bri_heading">Check My Rate
                                     </div>
                                     <div class="brih_sap">
-                                        <img src="<c:url value="/resources//images/sap_rats.png" />">
+                                        <img src="<c:url value="/resources/images/sap_rats.png" />">
                                     </div>
                                     <div class="birh_content">
                                         <div class="birh_rate_wrap">
@@ -203,12 +203,12 @@
                                     <div class="row">
                                         <div class="small-10 small-centered medium-8 mediumlarge-10 large-9 columns">
                                             <section class="HIW_illustration">
-                                                <img src="<c:url value="/resources//images/screeennn.png" />">
+                                                <img src="<c:url value="/resources/images/screeennn.png" />">
                                                 <div class="HIW_illustration responsiveScreen">
                                                     <div class="responsiveScreen_inner">
-                                                        <img class="HIW_screenshot active" id="HIW_screen-checkRate" data-q='HIW-check-rate-image' src="<c:url value="/resources//images/slid_pic1.png" />">
-                                                        <img class="HIW_screenshot" id="HIW_screen-chooseTerm" data-q='HIW-choose-terms-image' src="<c:url value="/resources//images/slid_pic2.png" />">
-                                                        <img class="HIW_screenshot" id="HIW_screen-getFunds" data-q='HIW-get-funds-image' src="<c:url value="/resources//images/slid_pic1.png" />">
+                                                        <img class="HIW_screenshot active" id="HIW_screen-checkRate" data-q='HIW-check-rate-image' src="<c:url value="/resources/images/slid_pic1.png" />">
+                                                        <img class="HIW_screenshot" id="HIW_screen-chooseTerm" data-q='HIW-choose-terms-image' src="<c:url value="/resources/images/slid_pic2.png" />">
+                                                        <img class="HIW_screenshot" id="HIW_screen-getFunds" data-q='HIW-get-funds-image' src="<c:url value="/resources/images/slid_pic1.png" />">
                                                     </div>
                                                 </div>
                                             </section>
@@ -265,10 +265,10 @@
                                 <div class="row">
                                     <div class="small-10 small-centered medium-8 mediumlarge-9 columns">
                                         <section class="HIW_illustration">
-                                            <img src="<c:url value="/resources//images/screeennn.png" />">
+                                            <img src="<c:url value="/resources/images/screeennn.png" />">
                                             <div class="HIW_illustration responsiveScreen">
                                                 <div class="responsiveScreen_inner">
-                                                    <img class="HIW_screenshot active" data-q='HIW-flattened-choose-terms-image' src="<c:url value="/resources//images/slid_pic1.png" />">
+                                                    <img class="HIW_screenshot active" data-q='HIW-flattened-choose-terms-image' src="<c:url value="/resources/images/slid_pic1.png" />">
                                                 </div>
                                             </div>
                                         </section>
@@ -332,13 +332,13 @@
                                     <div class="ringgetnsen_image-wrapper">
                                         <div class="row">
                                             <div class="small-10 small-centered large-12 columns">
-                                                <img src="<c:url value="/resources//images/recal_phone.png" />" alt="" class="ringgetnsen_image" data-q="ringgetnsen-image">
+                                                <img src="<c:url value="/resources/images/recal_phone.png" />" alt="" class="ringgetnsen_image" data-q="ringgetnsen-image">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mediumlarge-12 columns show-for-mediumlarge-only">
-                                    <img src="<c:url value="/resources//images/recal_phone.png" />" alt="" class="ringgetnsen_image" data-q="ringgetnsen-image-mediumlarge">
+                                    <img src="<c:url value="/resources/images/recal_phone.png" />" alt="" class="ringgetnsen_image" data-q="ringgetnsen-image-mediumlarge">
                                 </div>
                             </div>
                         </div>
@@ -361,10 +361,10 @@
                                             <div class="app_box">
                                                 <div class="ringgetnsen_app-links-wrapper" style="float:left;">
                                                     <a class="ringgetnsen_app-link" href="https://itunes.apple.com/in/genre/ios/id36?mt=8">
-                                                        <img src="<c:url value="/resources//images/aap_storee.png" />">
+                                                        <img src="<c:url value="/resources/images/aap_storee.png" />">
                                                     </a>
                                                     <a class="ringgetnsen_app-link" href="https://play.google.com/store?hl=en">
-                                                        <img src="<c:url value="/resources//images/google_play.png" />">
+                                                        <img src="<c:url value="/resources/images/google_play.png" />">
                                                     </a>
                                                 </div>
                                             </div>
@@ -384,20 +384,20 @@
                 <div class="sf_heading">Example of Schedule Financing fee and rates
                 </div>
                 <div class="sf_content2">
-                    <img src="<c:url value="/resources//images/ExampleGraphics.png" />">
+                    <img src="<c:url value="/resources/images/ExampleGraphics.png" />">
                 </div>
             </section>
             <section class="fullpage_section fullpage_section--footer fp-auto-height">
                 <div class="footer_new">
                     <div class="fn_row1">
                         <a href="#">
-                            <img src="<c:url value="/resources//images/fb_icon1.png" />">
+                            <img src="<c:url value="/resources/images/fb_icon1.png" />">
                         </a>
                         <a href="#">
-                            <img src="<c:url value="/resources//images/twitt_icon.png" />">
+                            <img src="<c:url value="/resources/images/twitt_icon.png" />">
                         </a>
                         <a href="#">
-                            <img src="<c:url value="/resources//images/linked_in_icon.png" />">
+                            <img src="<c:url value="/resources/images/linked_in_icon.png" />">
                         </a>
                     </div>
                     <div class="fn_row2">© 2016-2017 Recal. All rights reserved.

@@ -124,7 +124,7 @@ function showApplicationsByStatus(status)
 		status = "Pending_For_Borrower";
 	
 	 var siteurl = document.location.origin;
-	 var url = siteurl+"/admin/applicationslist?searchval="+status;
+	 var url = siteurl+"/recal/admin/applicationslist?searchval="+status;
 	 
 	 window.location.href = url;
 }

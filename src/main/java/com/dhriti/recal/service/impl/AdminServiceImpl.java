@@ -319,4 +319,103 @@ public class AdminServiceImpl implements AdminService {
 		// your logic here
 		return result;
 	}
+
+	@Override
+	public String loanDetailsbyStatus(String searchval, String uid, String keyId) {
+
+		String jsonResult = "";
+		String result = "";
+		try {
+
+			// String[] strAuthKey = getAuthKey().split(":");
+
+			String siteMode = env.getProperty("site.mode");
+			String userName = env.getProperty("api.username");
+			String pass = env.getProperty("api.password");
+
+			String apiUrl = "";
+
+			if (siteMode.equalsIgnoreCase("development"))
+				apiUrl = env.getProperty("api.dev.loanapplist.url");
+			else
+				apiUrl = env.getProperty("api.prod.loanapplist.url");
+
+			// create resteasy clinet
+			ResteasyClient client = new ResteasyClientBuilder().build();
+			ResteasyWebTarget target = client.target(apiUrl + "/" + searchval);
+			target.register(new BasicAuthentication(userName, pass));
+
+			Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+			
+			if (response.getStatus() != 200) {
+				throw new Exception("Failed : HTTP error code : " + response.getStatus() + " " + response.readEntity(String.class));
+			}
+
+			jsonResult = response.readEntity(String.class);
+			response.close(); // You should close connections!
+
+			// parse json to get key and keyid
+			JSONParser parser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
+
+			if (jsonObject.get("responseDetails") != null) {
+
+				// get response dtails
+				JSONArray arrApps = (JSONArray) jsonObject.get("responseDetails");
+
+				// read all objects
+				for (int iCnt = 0; iCnt < arrApps.size(); iCnt++) {
+					// get json object
+					JSONObject objRow = (JSONObject) arrApps.get(iCnt);
+
+					String loanId = "";
+					double amount = 0.00;
+					long processDate = 0;
+					String status = "";
+					long submissionDate = 0;
+					long userId = 0;
+
+					// get data
+					if (objRow.get("loanId") != null)
+						loanId = (String) objRow.get("loanId");
+
+					if (objRow.get("loanAmount") != null)
+						amount = (Double) objRow.get("loanAmount");
+
+					if (objRow.get("processedDate") != null)
+						processDate = (Long) objRow.get("processedDate");
+
+					if (objRow.get("status") != null)
+						status = (String) objRow.get("status");
+
+					if (objRow.get("submissionDate") != null)
+						submissionDate = (Long) objRow.get("submissionDate");
+
+					if (objRow.get("userId") != null)
+						userId = (Long) objRow.get("userId");
+
+					SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+					Date dtProcess = new Date(processDate);
+					Date dtSubmit = new Date(submissionDate);
+
+					if (iCnt == 0)
+						result += "[ \"" + sdf.format(dtProcess) + "\",\"" + loanId + "\",\"" + userId + "\",\"RM"
+								+ amount + "\",\" \",\"" + status + "\",\"" + sdf.format(dtSubmit) + "\" ]";
+					else
+						result += ",[ \"" + sdf.format(dtProcess) + "\",\"" + loanId + "\",\"" + userId + "\",\"RM"
+								+ amount + "\",\" \",\"" + status + "\",\"" + sdf.format(dtSubmit) + "\" ]";
+
+				}
+
+			} // end if
+
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}
+
+		result += " ]}";
+
+		// your logic here
+		return result;
+	}
 }

@@ -24,9 +24,19 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 
+	@GetMapping("/home")
+	public String adminHome(Model model) {
+		return "home";
+	}
+
 	@GetMapping("/admin")
 	public String adminLogin(Model model) {
 		return "admin/login";
+	}
+
+	@GetMapping("/signUp")
+	public String userSignup(Model model) {
+		return "admin/signUp";
 	}
 
 	@RequestMapping(value = "/admin/checklogin", method = RequestMethod.POST)
@@ -58,7 +68,8 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/admin/loansummary", method = RequestMethod.POST)
-	@ResponseBody String loansummary(@RequestParam String uid, @RequestParam String keyId) {
+	@ResponseBody
+	String loansummary(@RequestParam String uid, @RequestParam String keyId) {
 
 		String result = "";
 		try {
@@ -77,6 +88,23 @@ public class AdminController {
 		String result = "";
 		try {
 			result = adminService.recentApplicationDetails(uid, keyId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@RequestMapping(value = "listapplications", method = RequestMethod.POST)
+	@ResponseBody
+	public String listapplication(@RequestParam String searchval, @RequestParam String uid,
+			@RequestParam String keyId) {
+
+		String result = "{  \"data\": [";
+		String jsonResult = "";
+
+		try {
+			result = adminService.loanDetailsbyStatus(searchval, uid, keyId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
