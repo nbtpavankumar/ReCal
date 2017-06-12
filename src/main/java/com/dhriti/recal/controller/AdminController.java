@@ -59,6 +59,18 @@ public class AdminController {
 		model.addAttribute("page", "dashboard");
 		return "admin/dashboard";
 	}
+	
+	@RequestMapping(value = "/admin/borrowerList", method = RequestMethod.GET)
+	public String barrowerList(ModelMap model) {
+		model.addAttribute("page", "borrowerList");
+		return "admin/borrowerList";
+	}
+	
+	@RequestMapping(value = "/admin/salesRep", method = RequestMethod.GET)
+	public String salesRep(ModelMap model) {
+		model.addAttribute("page", "salesRep");
+		return "admin/salesRep";
+	}
 
 	@RequestMapping(value = "/admin/applicationslist", method = RequestMethod.GET)
 	public String applicationslist(@RequestParam String searchval, ModelMap model) {

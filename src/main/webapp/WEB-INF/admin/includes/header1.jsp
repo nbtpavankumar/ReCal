@@ -128,9 +128,9 @@
                     <li <c:if test="${page == 'dashboard'}"> class='active' </c:if> ><a href='/recal/admin/dashboard'>Dashboard</a></li>
                     <li <c:if test="${page == 'applications'}"> class='active' </c:if>><a href='#'>Application</a>
                         <ul>
-                            <li><a href='/admin/applicationslist?searchval=Submitted'>Lists</a> </li>
-                            <li><a href='#'>Borrower</a> </li>
-                            <li><a href='#'>Sales Rep</a> </li>
+                            <li><a href='/recal/admin/applicationslist?searchval=Submitted'>Lists</a> </li>
+                            <li><a href='/recal/admin/borrowerList'>Borrower</a> </li>
+                            <li><a href='/recal/admin/salesRep'>Sales Rep</a> </li>
                         </ul>
                     </li>
                     <li <c:if test="${page == 'loans'}"> class='active' </c:if>><a href='#'>Loan</a>

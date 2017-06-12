@@ -66,7 +66,7 @@
     
     
   
-    <script type="text/javascript" src="<c:url value="/adminassets/js/datatables.min.js.download" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/datatables.min.js.download" />" />
     <script type="text/javascript" charset="utf-8">
     
        

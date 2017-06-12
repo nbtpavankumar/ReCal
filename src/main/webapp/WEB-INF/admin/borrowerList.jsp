@@ -1,4 +1,5 @@
  <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ include file="/WEB-INF/admin/includes/header1.jsp" %>
 <html class="no-js">
 
 <head>
@@ -6,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <meta name='apple-mobile-web-app-capable' content='yes' />
     <title>Borrower List</title>
-    <link href="css/admin.css" media="screen" rel="stylesheet" />
-    <link href="css/fonts.css" media="screen" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/ddlevelsmenu-base.css" />
-    <link href="css/material-design-iconic-font.min.css" rel="stylesheet" />
-    <link href="css/responsive.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/datatables.min.css" rel="stylesheet" />
-    <link href="css/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/admin.css"/>" media="screen" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/fonts.css"/>" media="screen" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/ddlevelsmenu-base.css"/>" />
+    <link href="<c:url value="/resources/adminassets/css/material-design-iconic-font.min.css"/>" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/responsive.css"/>" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/style.css"/>" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/bootstrap.min.css"/>" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/datatables.min.css"/>" rel="stylesheet" />
+    <link href="<c:url value="/resources/adminassets/css/daterangepicker-bs3.css"/>" rel="stylesheet" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
@@ -76,8 +77,8 @@
             });
         })(jQuery);
     </script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/ddlevelsmenu.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap.min.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/ddlevelsmenu.js" />"></script>
     <script>
         $(document).ready(function () {
             $(".dropdown-menu li a").click(function () {
@@ -85,16 +86,16 @@
             });
         });
     </script>
-    <script type="text/javascript" src="js/datatables.min.js.download"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/datatables.min.js.download" />"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function () {
             $('#example').DataTable();
         });
     </script>
 
-    <script type="text/javascript" src="js/notify.js"></script>
-    <script type="text/javascript" src="js/moment.js"></script>
-    <script type="text/javascript" src="js/daterangepicker.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/notify.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/moment.js" />"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/daterangepicker.js" />"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -253,8 +254,6 @@
                 //$(this).hide();
             });
 
-
-
         });
 
         if (!String.prototype.endsWith) {
@@ -269,99 +268,11 @@
             };
         }
     </script>
-    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
-
-
-
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap-datepicker.js"/> "></script>
 
 </head>
 
 <body>
-    <div class="header_top">
-        <div class="ht_inner">
-            <div class="hti_logo">
-                <a href="#"><img src="images/Ringgernsen_logo.png" /></a>
-            </div>
-            <div class="ht_user" id="ddtopmenubar">
-                <ul>
-                    <li>
-                        <a href="#" rel="ddsubmenu3"><img src="images/user_icon.png" /></a>
-                    </li>
-                </ul>
-                <script type="text/javascript">
-                    ddlevelsmenu.setup("ddtopmenubar", "topbar")
-                </script>
-            </div>
-            <div class="clear"></div>
-        </div>
-    </div>
-
-    <header>
-        <div class="hr_inner">
-            <nav id='cssmenu'>
-                <div class="logo"><a href="index.html">Menu</a></div>
-                <div id="head-mobile"></div>
-                <div class="button"></div>
-                <ul>
-                    <li><a href='dashboard.html'>Dashboard</a></li>
-                    <li class='active'><a href='#'>Application</a>
-                        <ul>
-                            <li><a href='application-list.html'>Lists</a> </li>
-                            <li><a href='borrower-list.html'>Borrower</a> </li>
-                            <li><a href='sales-rep.html'>Sales Rep</a> </li>
-                        </ul>
-                    </li>
-                    <li><a href='#'>Loan</a>
-                        <ul>
-                            <li><a href='loan-list.html'>Lists</a> </li>
-                            <li><a href='disbursement.html'>Disbursement</a> </li>
-                            <li><a href='collections.html'>Collections</a> </li>
-                        </ul>
-
-                    </li>
-                    <li><a href='#'>Investor</a>
-                        <ul>
-                            <li><a href='Top-up-funds.html'>Top up funds</a> </li>
-                            <li><a href='Withdrawal-Request.html'>Withdrawal Request</a> </li>
-                            <li><a href='LLP-Master.html'>LLP Master</a> </li>
-                        </ul>
-                    </li>
-                    <li><a href='#'>Messages</a>
-                        <ul>
-                            <li><a href='Emails.html'>Emails</a> </li>
-                            <li><a href='message-template.html'>Message Templates</a> </li>
-                            <li><a href='sms-list.html'>SMS</a> </li>
-                        </ul>
-                    </li>
-
-                    <li><a href='#'>Users</a>
-                        <ul>
-                            <li><a href='authorizer.html'>Authorizer</a> </li>
-                            <li><a href='maker.html'>Maker</a> </li>
-                        </ul>
-                    </li>
-                    <li><a href='#'>Reporting</a>
-                        <ul>
-                            <li><a href='Disbursement_Report.html'>Disbursement</a> </li>
-                            <li><a href='Collection_Report.html'>Collection</a> </li>
-                            <li><a href='Loan_Report.html'>Loan</a> </li>
-                            <li><a href='Declined_Application_Report.html'>Declined Application</a> </li>
-                            <li><a href='Delinquency_Info.html'>Delinquency Info</a> </li>
-                            <li><a href='Ramci_Credit_Info.html'>Ramci Api Logs</a> </li>
-                        </ul>
-                    </li>
-                    <li><a href='#'>UAT</a>
-                        <ul>
-                            <li><a href='Repayment_Schedule.html'>Repayment Schedules</a> </li>
-                            <li><a href='Schedule_Task.html'>Schedule Tasks</a> </li>
-                            <li><a href='Social_Test.html'>Social Test</a> </li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <div class="clear"></div>
-        </div>
-    </header>
     <div class="content_area">
         <div class="content_inner">
             <div class="content_box_wrap">
@@ -435,20 +346,11 @@
         <div class="clear"></div>
     </div>
 
-
     <ul id="ddsubmenu3" class="ddsubmenustyle">
         <li><a href="#">info@exampledomin.com</a></li>
         <li><a href="#">Change Password</a></li>
         <li><a href="#">Sign Out</a></li>
     </ul>
-
-
-
-
-
-
-
-
 
 </body>
 
