@@ -28,6 +28,11 @@ public class AdminController {
 	public String adminHome(Model model) {
 		return "home";
 	}
+	
+	@GetMapping("/companyGo")
+	public String adminHomeContinue(Model model) {
+		return "companyGo";
+	}
 
 	@GetMapping("/admin")
 	public String adminLogin(Model model) {

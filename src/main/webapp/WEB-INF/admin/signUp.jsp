@@ -14,23 +14,23 @@
     <!-- Favicons -->
     <!--<link rel="shortcut icon" href="assets/images/icons/favicon.png">-->
 
-    <link rel="stylesheet" type="text/css" href="assets/icons/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/assets/icons/fontawesome/css/font-awesome.css"/>">
 
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css">
-    <link rel="stylesheet" type="text/css" href="css/awesome-bootstrap-checkbox.css">
-    <link rel="stylesheet" type="text/css" href="btRangeSlider/css/bootstrap-slider.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap-theme.css"/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/awesome-bootstrap-checkbox.css"/>">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/btRangeSlider/css/bootstrap-slider.css"/>">
 
     <!-- Admin theme -->
-    <link rel="stylesheet" type="text/css" href="css/ringgit.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/ringgit.css"/>">
 
     <!-- Admin responsive -->
-    <link rel="stylesheet" type="text/css" href="css/admin-responsive.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/admin-responsive.css"/>">
 
     <!-- JS Core -->
 
-    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="assets/js-core/modernizr.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/jquery-3.1.1.min.js"/>"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
 
 </head>
@@ -228,20 +228,8 @@ Logout</a></li>
                                         </div>
 
                                     </div>
-
-
-
-
-
-
-
-
-
-
                                 </div>
                             </div>
-
-
                         </div>
 
 
@@ -445,8 +433,8 @@ prepayment penalties
     </div>
 
     <!-- WIDGETS -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="btRangeSlider/bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/btRangeSlider/bootstrap-slider.min.js"/>"></script>
     <script>
         $('#stateDropdown > li > a').click(function (e) {
             $(this).closest('.mdStateDrop').fadeOut();

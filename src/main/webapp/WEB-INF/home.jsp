@@ -369,7 +369,7 @@
                                                 </div>
                                             </div>
                                             <div class="compny_go_link">
-                                                <a href="#">Click here to learn more about AlphaCredits <i>express</i> >
+                                                <a href="companyGo">Click here to learn more about AlphaCredits <i>express</i> >
                           </a>
                                             </div>
                                         </div>
