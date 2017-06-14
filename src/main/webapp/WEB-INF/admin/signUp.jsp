@@ -184,7 +184,7 @@ Logout</a></li>
                                             <div class="formFieldCont">
                                                 <input class="form-control" id="" type="text">
                                                 <span class="fldIcon">
-                                    	<img src="images/ic4.png" >
+                                    	<img src="<c:url value="/resources/adminassets/images/ic4.png"/>" >
                                     </span>
                                             </div>
                                         </div>
@@ -233,7 +233,7 @@ Logout</a></li>
                         </div>
 
 
-                        <a href="personal details.html" class="btn btnSignUp">Get a Quote Today</a>
+                        <a href="personalDetails" class="btn btnSignUp">Get a Quote Today</a>
 
                     </div>
                     <div class="col-md-4">

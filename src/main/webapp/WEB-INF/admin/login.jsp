@@ -93,7 +93,7 @@
                         <footer class="formBox_footer">
 
                             <div class="button-panel">
-                                <p>By logging in, you are bound by <a href="#">Ringgitnsen Customer Terms &amp; Condition</a></p>
+                                <p>By logging in, you are bound by <a href="termsConditions">AlphaCredits Customer Terms &amp; Condition</a></p>
                                 <button type="button" class="btn btn-default btn-lg" id="loginSigninBtn" onclick="submitLogin()">Sign In</button>
 
 

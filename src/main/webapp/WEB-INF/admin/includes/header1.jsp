@@ -26,7 +26,6 @@
        isUserNotLoggedIn();
    
      
-     
         (function ($) {
             $.fn.menumaker = function (options) {
                 var cssmenu = $(this),
@@ -82,6 +81,133 @@
                 $("#cssmenu").menumaker({
                     format: "multitoggle"
                 });
+                
+                $.notify.addStyle("showloading", {
+                    html: '<div class="title" data-notify-html="title"><i class="fa fa-spin fa-spinner fa-2x text-orange"></i></div>',
+                    classes: {
+                        base: {
+                            //"box-shadow": "inset 0 1px 1px rgba(0, 0, 0, 0.075)",
+                            "background": "transparent",
+                            "padding": "0px"
+                        },
+                    }
+                });
+
+                $('div.dpmonth.input-group.date').datepicker({
+                    clearBtn: true,
+                    autoclose: true,
+                    todayHighlight: true,
+                    orientation: "auto",
+                    format: "mm/yyyy",
+                    viewMode: "months",
+                    minViewMode: "months",
+                });
+
+                $('div.input-group.date, .date-picker').datepicker({
+                    clearBtn: true,
+                    autoclose: true,
+                    todayHighlight: true,
+                    orientation: "auto",
+                    format: "dd/mm/yyyy",
+
+                });
+
+                $(".numeric").numeric();
+                $(".integer").numeric(false, function () {
+                    alert("Integers only");
+                    this.value = "";
+                    this.focus();
+                });
+                $(".positive").numeric({
+                    negative: false
+                }, function () {
+                    alert("No negative values");
+                    this.value = "";
+                    this.focus();
+                });
+                $(".positive-integer").numeric({
+                    decimal: false,
+                    negative: false
+                }, function () {
+                    alert("Positive integers only");
+                    this.value = "";
+                    this.focus();
+                });
+                $(".decimal-2-places").numeric({
+                    decimalPlaces: 2
+                });
+
+                $('#searchbtn').on('click', function () {
+                    var s = $('#searchstring').val();
+
+                    if (s.length || $(this).data("allowempty")) {
+                        window.location.href = 'http://demo.lendlend.com/oacc/authorizer/borrowerlist' + "?s=" + s;
+                    } else {
+                        $('#searchstring').parent().removeClass('has-error').addClass('has-error');
+                        $.notify("Please enter value for searching", "error");
+                    }
+                });
+
+                $.maskLoading = function (selector, opt) {
+                    if (opt.showLoading) {
+                        $(selector).attr("disabled", "disabled").text(opt.msg).val(opt.msg);
+                    } else {
+                        $(selector).removeAttr("disabled").text(opt.msg).val(opt.msg);
+                    }
+                }
+
+                $.validator.methods.date = function (value, element) {
+                    return this.optional(element) || Globalize.parseDate(value, "dd/MM/yyyy", "en");
+                };
+
+                var current_page_url = location.protocol + '//' + location.host + location.pathname;
+                current_page_url = current_page_url.toLowerCase();
+                //alert(current_page_url.toLowerCase().endsWith('/oacc'));
+                //highligh menu
+                if (current_page_url.endsWith('/oacc') ||
+                    current_page_url.endsWith('/oacc/') ||
+                    current_page_url.endsWith('/authorizer') ||
+                    current_page_url.endsWith('/authorizer/') ||
+                    current_page_url.endsWith('/maker') ||
+                    current_page_url.endsWith('/maker/')
+                ) {
+                    $('#nav-home').addClass("active");
+                    $('#sidebar-title').html('<i class="fa fa-home"></i> Dashboard');
+                }
+
+                $('#navbar ul.dropdown-menu > li > a').each(function (i, v) {
+
+                    //Highlight current page in menu
+                    if (current_page_url.endsWith(v.href.toLowerCase())) {
+                        $(this).parent().addClass("active"); //li
+                        $(this).removeAttr('href');
+                        $(this).parent().parent().parent().addClass("active"); // li class=dropdown
+
+
+                    }
+                });
+
+
+                $("a:contains('Back to List')").each(function (i, v) {
+                    //alert($(this).html());
+                    $('#topmessage').append($("<li></li>").append($(this).prepend("<i class='fa fa-chevron-left'></i> "))).append("<div class='margin-bottom-10'></div>");
+                    //$(this).hide();
+                });
+
+
+
+            });
+
+            if (!String.prototype.endsWith) {
+                String.prototype.endsWith = function (searchString, position) {
+                    var subjectString = this.toString();
+                    if (position === undefined || position > subjectString.length) {
+                        position = subjectString.length;
+                    }
+                    position -= searchString.length;
+                    var lastIndex = subjectString.indexOf(searchString, position);
+                    return lastIndex !== -1 && lastIndex === position;
+                };
             });
         })(jQuery);
     </script>
@@ -133,50 +259,50 @@
                             <li><a href='/recal/admin/salesRep'>Sales Rep</a> </li>
                         </ul>
                     </li>
-                    <li <c:if test="${page == 'loans'}"> class='active' </c:if>><a href='#'>Loan</a>
+                    <li <c:if test="${page == 'loans'}"> class='active' </c:if>><a href='/recal/admin/loanList'>Loan</a>
                         <ul>
-                            <li><a href='#'>Lists</a> </li>
-                            <li><a href='#'>Disbursement</a> </li>
-                            <li><a href='#'>Collections</a> </li>
+                            <li><a href='/recal/admin/loanList'>Lists</a> </li>
+                            <li><a href='/recal/admin/disbursement'>Disbursement</a> </li>
+                            <li><a href='/recal/admin/repayCollections'>Collections</a> </li>
                         </ul>
 
                     </li>
-                    <li><a href='#'>Investor</a>
+                    <li><a href='/recal/admin/topupFunds'>Investor</a>
                         <ul>
-                            <li><a href='#'>Top up funds</a> </li>
-                            <li><a href='#'>Withdrawal Request</a> </li>
-                            <li><a href='#'>LLP Master</a> </li>
+                            <li><a href='/recal/admin/topupFunds'>Top up funds</a> </li>
+                            <li><a href='/recal/admin/withdrawalRequest'>Withdrawal Request</a> </li>
+                            <li><a href='/recal/admin/llpMaster'>LLP Master</a> </li>
                         </ul>
                     </li>
                     <li><a href='#'>Messages</a>
                         <ul>
-                            <li><a href='#'>Emails</a> </li>
-                            <li><a href='#'>Message Templates</a> </li>
-                            <li><a href='#'>SMS</a> </li>
+                            <li><a href='/recal/admin/emailMsgList'>Emails</a> </li>
+                            <li><a href='/recal/admin/messageTemplateList'>Message Templates</a> </li>
+                            <li><a href='/recal/admin/smsList'>SMS</a> </li>
                         </ul>
                     </li>
 
                     <li><a href='#'>Users</a>
                         <ul>
-                            <li><a href='#'>Authorizer</a> </li>
-                            <li><a href='#'>Maker</a> </li>
+                            <li><a href='/recal/admin/authorizerusers'>Authorizer</a> </li>
+                            <li><a href='/recal/admin/makerUsers'>Maker</a> </li>
                         </ul>
                     </li>
-                    <li><a href='#'>Reporting</a>
+                    <li><a href='/recal/admin/disbursementReport'>Reporting</a>
                         <ul>
-                            <li><a href='#'>Disbursement</a> </li>
-                            <li><a href='#'>Collection</a> </li>
-                            <li><a href='#'>Loan</a> </li>
-                            <li><a href='#'>Declined Application</a> </li>
-                            <li><a href='#'>Delinquency Info</a> </li>
-                            <li><a href='#'>Ramci Api Logs</a> </li>
+                            <li><a href='/recal/admin/disbursementReport'>Disbursement</a> </li>
+                            <li><a href='/recal/admin/collectionReport'>Collection</a> </li>
+                            <li><a href='/recal/admin/loanReport'>Loan</a> </li>
+                            <li><a href='/recal/admin/declinedAppReport'>Declined Application</a> </li>
+                            <li><a href='/recal/admin/delinquencyInfo'>Delinquency Info</a> </li>
+                            <li><a href='/recal/admin/ramciCreditInfo'>Ramci Api Logs</a> </li>
                         </ul>
                     </li>
-                    <li><a href='#'>UAT</a>
+                    <li><a href='/recal/admin/repaymentSchedule'>UAT</a>
                         <ul>
-                            <li><a href='#'>Repayment Schedules</a> </li>
-                            <li><a href='#'>Schedule Tasks</a> </li>
-                            <li><a href='#'>Social Test</a> </li>
+                            <li><a href='/recal/admin/repaymentSchedule'>Repayment Schedules</a> </li>
+                            <li><a href='/recal/admin/scheduleTask'>Schedule Tasks</a> </li>
+                            <li><a href='/recal/admin/socialTest'>Social Test</a> </li>
                         </ul>
                     </li>
                 </ul>
@@ -184,3 +310,8 @@
             <div class="clear"></div>
         </div>
     </header>
+    <ul id="ddsubmenu3" class="ddsubmenustyle">
+        <li><a href="#">info@exampledomin.com</a></li>
+        <li><a href="#">Change Password</a></li>
+        <li><a href="#">Sign Out</a></li>
+    </ul>
