@@ -12,6 +12,9 @@
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/ddlevelsmenu-base.css" />" />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/datatables.min.css" />" />
     
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="<c:url value="/resources/images/favicon.png"/>">
+    
     <link href="<c:url value="/resources/adminassets/css/material-design-iconic-font.min.css" />" rel="stylesheet" />
     <link href="<c:url value="/resources/adminassets/css/font-awesome.min.css" />" rel="stylesheet" />
     <link href="<c:url value="/resources/adminassets/css/responsive.css" />" rel="stylesheet" />

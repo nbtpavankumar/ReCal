@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/powerange.css" />" />
     <script src="<c:url value="/resources/js/jquery-1.7.2.min.js" />">
     </script>
+     <!-- Favicons -->
+    <link rel="shortcut icon" href="<c:url value="/resources/images/favicon.png"/>">
     <script type="text/javascript">
         $(window).on("scroll", function () {
             if ($(window).scrollTop() > 50) {

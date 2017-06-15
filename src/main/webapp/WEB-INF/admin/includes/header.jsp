@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Favicons -->
-    <!--<link rel="shortcut icon" href="/WEB-INF/jsp/admin/assets/images/icons/favicon.png">-->
+    <link rel="shortcut icon" href="<c:url value="/resources/images/favicon.png"/>">
 
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/assets/icons/fontawesome/css/font-awesome.css" />">
 
