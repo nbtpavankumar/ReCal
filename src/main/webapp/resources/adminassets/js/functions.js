@@ -157,7 +157,7 @@ function siteLogOut()
 	
 	//redirect to login page
 	 var siteurl = document.location.origin;
-	 var url = siteurl+"recal/admin/login";
+	 var url = siteurl+"/recal/admin/login";
 	 window.location.href = url;
 }
 

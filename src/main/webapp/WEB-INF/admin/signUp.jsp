@@ -30,6 +30,8 @@
     <!-- JS Core -->
 
     <script type="text/javascript" src="<c:url value="/resources/adminassets/js/jquery-3.1.1.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/capthaApi.js"/>"></script>
+    
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
 
@@ -69,14 +71,14 @@ Logout</a></li>
                                         <div class="col-sm-6">
                                             <div class="sldContainer">
                                                 <span class="leftLblspan">RM 5K</span>
-                                                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="14" />
+                                                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="5000" data-slider-max="50000" data-slider-step="1" data-slider-value="1000" />
                                                 <span class="rightLblspan">RM 50K</span>
 
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
                                             <span class="amtLbl pull-right">
-                        	RM 10000 
+                        	RM <label id="valonc"> 5000 </label>
                             </span>
                                         </div>
                                     </div>
@@ -85,6 +87,7 @@ Logout</a></li>
 
                                 </div>
                                 <div class="clearfix"></div>
+                                <input type="hidden" name="option" id="myoption">
                                 <div class="table-responsive">
                                     <table class="amountTbl">
                                         <tr>
@@ -99,7 +102,8 @@ Logout</a></li>
                                                 <td>4.30% - 17.30% p.a.</td>
                                                 <td>RM869- RM978</td>
                                                 <td>
-                                                    <a hidden="#" class="btn btnChose">Choose</a>
+                                                <input type="button" data-tenor="0" class="btn btnChose" name="tenor" value="Choose">
+                                                  <!--  <a hidden="#" class="btn btnChose">Choose</a> --> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -107,7 +111,8 @@ Logout</a></li>
                                                 <td>4.30% - 17.30% p.a.</td>
                                                 <td>RM869- RM978</td>
                                                 <td>
-                                                    <a hidden="#" class="btn btnChose">Choose</a>
+                                                <input type="button" data-tenor="1" class="btn btnChose" name="tenor" value="Choose">
+                                                   <!-- <a hidden="#" class="btn btnChose">Choose</a> --> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -115,7 +120,8 @@ Logout</a></li>
                                                 <td>4.30% - 17.30% p.a.</td>
                                                 <td>RM869- RM978</td>
                                                 <td>
-                                                    <a hidden="#" class="btn btnChose">Choose</a>
+                                                <input type="button" data-tenor="2" class="btn btnChose" name="tenor" value="Choose">
+                                                     <!-- <a hidden="#" class="btn btnChose">Choose</a> --> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -123,7 +129,8 @@ Logout</a></li>
                                                 <td>4.30% - 17.30% p.a.</td>
                                                 <td>RM869- RM978</td>
                                                 <td>
-                                                    <a hidden="#" class="btn btnChose">Choose</a>
+                                                <input type="button" data-tenor="3" class="btn btnChose" name="tenor" value="Choose">
+                                                       <!-- <a hidden="#" class="btn btnChose">Choose</a> --> 
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -222,9 +229,7 @@ Logout</a></li>
 
                                         <label class="col-sm-2 control-label"> &nbsp; </label>
                                         <div class="col-sm-10">
-                                            <div class="formFieldCont">
-                                                <img src="<c:url value="/resources/adminassets/images/capCha.png" /> ">
-                                            </div>
+                                           <div class="g-recaptcha" data-sitekey="6LdyXCYUAAAAAKJ-nTMog_WeSP6kcZZv-njQx_Oe"></div>
                                         </div>
 
                                     </div>
@@ -264,7 +269,7 @@ Logout</a></li>
                             	<img src="<c:url value="/resources/adminassets/images/fc1.png" /> " >
                             </span>
                                     <span class="fText">
-                            	Fixed termsâ€”6 to 24 months*
+                            	Fixed terms - €”6 to 24 months*
                             </span>
                                 </li>
 
@@ -282,8 +287,7 @@ Logout</a></li>
                             	<img src="<c:url value="/resources/adminassets/images/fc4.png" /> " >
                             </span>
                                     <span class="fText">
-                            	No hidden fees or <br>
-prepayment penalties
+                            	No hidden fees or <br> prepayment penalties
                             </span>
                                 </li>
 
@@ -453,6 +457,14 @@ prepayment penalties
             formatter: function (value) {
                 return 'Current value: ' + value;
             }
+        });
+        $("#ex1").on("slide", function(slideEvt) {
+        	$("#valonc").text(slideEvt.value);
+        });
+        $(".btnChose").click(function(){
+        	$(".btnChose").val("Choose");
+        	$(this).val("Selected");
+        	$("#myoption").val($(this).data('tenor'));
         });
     </script>
 </body>

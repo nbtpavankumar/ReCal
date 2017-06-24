@@ -1,58 +1,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="/WEB-INF/admin/includes/header.jsp" %>
-<head>
-
-    <meta charset="UTF-8">
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Personal Details</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!-- Favicons -->
-    <!--<link rel="shortcut icon" href="assets/images/icons/favicon.png">-->
-
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/assets/icons/fontawesome/css/font-awesome.css"/>">
-
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap-theme.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/awesome-bootstrap-checkbox.css"/>">
-
-    <!-- Admin theme -->
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/ringgit.css"/>">
-
-    <!-- Admin responsive -->
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/admin-responsive.css"/>">
-
-    <!-- JS Core -->
-
-    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/jquery-3.1.1.min.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/adminassets/assets/js-core/modernizr.js"/>"></script>
-
-
-</head>
-
-<body>
-
-    <div class="header_new active top_bar_header">
-        <div class="ringgetnsen_logo"><img src="<c:url value="/resources/adminassets/images/Logo.png"/>"></div>
-        <div class="header-right">
-            <ul class="top_control_list">
-                <li class="t_icon myaccount_link"><a href="<c:url value="/resources/adminassets/Borrower/Dashboard.html"/>">My Account</a></li>
-                <li class="t_icon logout_link"> <a href="login"><i class="fa fa-sign-out" aria-hidden="true"></i>
-Logout</a></li>
-                <li class="back-btn"><a href="home" class="btn btn-holo"><i aria-hidden="true" class="display_mobile fa fa-chevron-circle-right"></i>
-               <span class="hide_mobile ">Back To Home</span></a></li>
-            </ul>
-        </div>
-
-    </div>
 
     <div id="middle_content_area">
         <div class="login_content_area container-fluid">
             <div class="container1000">
                 <h1 class="capital">personal details</h1>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
                         <div class="amounterm">
                             <h3 class="textCenter amountBtm">
                                 <img src="<c:url value="/resources/adminassets/images/aandm.png"/>">
@@ -91,67 +45,57 @@ Logout</a></li>
                             <div class=" aboutdata">
 
                                 <div class="amounttermData dataright">
-                                	<form class="form-horizontal">
+                                    <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Purpose</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="Purpose of Loan">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">New I/C No.</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>800101-14-1234</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">New I/C No.</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Re-type New I/C No.</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>800101-14-1234</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Re-type New I/C No.</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label"> Name as per IC </label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Law Wan How</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label"> Name as per IC </label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Mobile No</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>+60 123 456</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Mobile No</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Residential address</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>15,PP1/2, Taman Putra, Prima, Puchong Selangor</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Residential address</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
-                                            </div>
-                                        </div>
-                                    </form>
-                                    
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Postal Code</label>
-                                            <div class="col-sm-4 ">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Postal Code</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6 ">
+                                                <p>987654</p>
                                             </div>
                                             <div class="col-md-4">
                                             </div>
@@ -160,16 +104,20 @@ Logout</a></li>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Country / State / City</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Country / State / City</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Malaysia</p>
                                             </div>
                                         </div>
                                     </form>
+                                    
                                 </div>
                             </div>
                         </div>
+
+
+                        <!--sssssss-->
 
 
                         <div class="amounterm aboutyourself">
@@ -180,111 +128,78 @@ Logout</a></li>
                                 <div class="amounttermData dataright">
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Type of Employment</label>
-                                            <div class="col-sm-8">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">select 1</a></li>
-                                                        <li><a href="#">select 2</a></li>
-                                                        <li><a href="#">select 3</a></li>
 
-                                                    </ul>
-                                                </div>
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Type of Employment</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Sr. Web Developer</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Employer Name</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <form class="form-horizontal">
-                                        <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Industry</label>
-                                            <div class="col-sm-8">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">select 1</a></li>
-                                                        <li><a href="#">select 2</a></li>
-                                                        <li><a href="#">select 3</a></li>
 
-                                                    </ul>
-                                                </div>
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Employer Name</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Jhon Deo</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Industry</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Information technology </p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">
                                                 Business in operation /length of service</label>
-                                            <div class="col-sm-8">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">select 1</a></li>
-                                                        <li><a href="#">select 2</a></li>
-                                                        <li><a href="#">select 3</a></li>
-
-                                                    </ul>
-                                                </div>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Less then 6 Month </p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Employer Address</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Employer Address</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>JLN 5720 </p>
                                             </div>
                                         </div>
                                     </form>
  									<form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Postal Code</label>
-                                            <div class="col-sm-4 ">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Postal Code</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>987654</p>
                                             </div>
-                                            <div class="col-md-4">
-                                            </div>
+
 
                                         </div>
                                     </form>
-                                    
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Country / State / City</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Country / State / City</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Malaysia</p>
                                             </div>
                                         </div>
                                     </form>
+
+                                   
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Referral Code</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Referral Code</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>1085</p>
                                             </div>
                                         </div>
                                     </form>
@@ -305,50 +220,38 @@ Logout</a></li>
 
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Bank Name</label>
-                                            <div class="col-sm-8">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">HTML</a></li>
-                                                        <li><a href="#">CSS</a></li>
-                                                        <li><a href="#">JavaScript</a></li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="#">About Us</a></li>
-                                                    </ul>
-                                                </div>
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Bank Name</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Affin Bank</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Account Number</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Account Number</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>1234567890</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">Confirm Account Number</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">Confirm Account Number</label>
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>1234567890</p>
                                             </div>
                                         </div>
                                     </form>
                                     <form class="form-horizontal">
                                         <div class="form-group">
-                                            <div class="col-md-1"></div>
-                                            <label class="col-sm-3 control-label">
+
+                                            <label class="col-sm-3 col-sm-6 col-xs-6 control-label">
                                                 Account Holder Name (No 3rd party allowed)</label>
-                                            <div class="col-sm-8">
-                                                <input class="form-control" id="" type="text" placeholder="800101-14-1234">
+                                            <div class="col-sm-8 col-sm-6 col-xs-6">
+                                                <p>Lisa Deo</p>
                                             </div>
                                         </div>
                                     </form>
@@ -374,20 +277,11 @@ Logout</a></li>
                                     <div class="upload_images">
                                         <ul class="uplaoding">
                                             <li>
-                                                <input style="display:none" type="file" id="fileupload1" />
-                                                <a href="">
-                                                    <img src="<c:url value="/resources/adminassets/images/front.png"/>"></a>
-                                                <button type="button" class="btn uploads" id="btnUpload1" onclick='$("#fileupload1").click()'>
-                                                    <i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload
-                                                </button>
+                                                <img src="<c:url value="/resources/adminassets/images/bank-doc1.jpg"/>">
+
                                             </li>
                                             <li>
-                                                <input style="display:none" type="file" id="fileupload2" />
-                                                <a href="">
-                                                    <img src="<c:url value="/resources/adminassets/images/back.png"/>"></a>
-                                                <button type="button" class="btn uploads" id="btnUpload2" onclick='$("#fileupload2").click()'>
-                                                    <i class="fa fa-cloud-upload" aria-hidden="true"></i> Upload
-                                                </button>
+                                                <img src="<c:url value="/resources/adminassets/images/bank-doc2.jpg"/>">
                                             </li>
                                         </ul>
                                     </div>
@@ -398,12 +292,11 @@ Logout</a></li>
 
 
 
-                        <a class="btn btnSignUp" href="personalDetailsView">Next</a>
 
 
 
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
                         <div class="amounterm">
                             <h3 class="textCenter amountBtm">
                                 <img src="<c:url value="/resources/adminassets/images/appC.png"/>">
@@ -412,7 +305,7 @@ Logout</a></li>
                                 <ul class="progressing">
                                     <li><span class="progcircle"><span class="progDetails"></span></span>details</li>
                                     <li><span class="progcircle"><span class="progDetails"></span></span>Personal Details</li>
-                                    <li class="LastCli"><span class="progcircle lastC"><span class=""></span></span>Review and Submit</li>
+                                    <li><span class="progcircle lastC"><span class="progDetails"></span></span>Review and Submit</li>
                                 </ul>
                             </div>
                         </div>

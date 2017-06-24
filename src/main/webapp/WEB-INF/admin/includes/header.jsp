@@ -42,7 +42,7 @@
         <div class="header-right">
             <ul class="top_control_list">
 
-                <li class="back-btn"><a href="/" class="btn btn-holo"><i aria-hidden="true" class="display_mobile fa fa-chevron-circle-right"></i>
+                <li class="back-btn"><a href="home" class="btn btn-holo"><i aria-hidden="true" class="display_mobile fa fa-chevron-circle-right"></i>
                <span class="hide_mobile ">Back To Home</span></a></li>
             </ul>
         </div>

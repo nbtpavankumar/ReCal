@@ -40,6 +40,11 @@ public class AdminController {
 	public String signUpPersonalDetails(Model model) {
 		return "admin/personalDetails";
 	}
+	
+	@GetMapping("/personalDetailsView")
+	public String signUpPersonalDetailsView(Model model) {
+		return "admin/personalDetailsView";
+	}
 
 	// While Click on Terms and Condition will go this page
 	@GetMapping("/termsConditions")
@@ -102,7 +107,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/applicationslist", method = RequestMethod.GET)
 	public String applicationslist(@RequestParam String searchval, ModelMap model) {
-		model.addAttribute("page", "applications");
+		model.addAttribute("page", "listapplications");
 		model.addAttribute("search", searchval);
 		return "admin/listapplications";
 	}
@@ -135,10 +140,9 @@ public class AdminController {
 		return result;
 	}
 
-	@RequestMapping(value = "listapplications", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/listapplications", method = RequestMethod.POST)
 	@ResponseBody
-	public String listapplication(@RequestParam String searchval, @RequestParam String uid,
-			@RequestParam String keyId) {
+	public String listapplication(@RequestParam String searchval, @RequestParam String uid, @RequestParam String keyId) {
 
 		String result = "{  \"data\": [";
 		String jsonResult = "";

@@ -94,7 +94,7 @@
                                 <div class="banner_box">
                                     <div class="banner_row">Low Rates
                                     </div>
-                                    <div class="banner_row">Fixed term – 3, 6, 12 or 24 months
+                                    <div class="banner_row">Fixed term - 3, 6, 12 or 24 months
                                     </div>
                                     <div class="banner_row">Single monthly repayment
                                     </div>
