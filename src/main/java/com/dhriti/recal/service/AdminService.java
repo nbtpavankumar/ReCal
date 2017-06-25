@@ -16,6 +16,12 @@ public interface AdminService {
 
 	/**
 	 * 
+	 * @return
+	 */
+	public String getAuthKey();
+
+	/**
+	 * 
 	 * @param uid
 	 * @param keyId
 	 * @return

@@ -74,7 +74,7 @@
             </div>
             <div class="header_right">
                 <div class="apply_button">
-                    <a href="signUp">Apply Now
+                    <a href="borrower/signUp">Apply Now
             </a>
                 </div>
                 <div class="sign_in_button">

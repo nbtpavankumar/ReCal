@@ -35,12 +35,6 @@ public class AdminController {
 		return "companyGo";
 	}
 
-	// After click on GetQuote wil display below Page
-	@GetMapping("/personalDetails")
-	public String signUpPersonalDetails(Model model) {
-		return "admin/personalDetails";
-	}
-	
 	@GetMapping("/personalDetailsView")
 	public String signUpPersonalDetailsView(Model model) {
 		return "admin/personalDetailsView";
@@ -58,11 +52,6 @@ public class AdminController {
 		return "admin/login";
 	}
 
-	// Create New Account
-	@GetMapping("/signUp")
-	public String userSignup(Model model) {
-		return "admin/signUp";
-	}
 
 	// Validate the user credentials
 	@RequestMapping(value = "/admin/checklogin", method = RequestMethod.POST)

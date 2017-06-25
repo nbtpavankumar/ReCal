@@ -1,7 +1,9 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="/WEB-INF/admin/includes/header.jsp" %>
-
-<html lang="en">
 
 <head>
 
@@ -10,10 +12,6 @@
     <title>Signup</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <!-- Favicons -->
-    <!--<link rel="shortcut icon" href="assets/images/icons/favicon.png">-->
-
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/assets/icons/fontawesome/css/font-awesome.css"/>">
 
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap.min.css"/>">
@@ -33,6 +31,7 @@
     <script type="text/javascript" src="<c:url value="/resources/adminassets/js/capthaApi.js"/>"></script>
     
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/jquery.form-validator.js"/>"></script>
 
 
 </head>
@@ -43,9 +42,6 @@
         <div class="ringgetnsen_logo"><img src="<c:url value="/resources/adminassets/images/Logo.png" />"></div>
         <div class="header-right">
             <ul class="top_control_list">
-                <li class="t_icon myaccount_link"><a href="Borrower/Dashboard.html">My Account</a></li>
-                <li class="t_icon logout_link"> <a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i>
-Logout</a></li>
                 <li class="back-btn"><a href="home" class="btn btn-holo"><i aria-hidden="true" class="display_mobile fa fa-chevron-circle-right"></i>
                <span class="hide_mobile ">Back To Home</span></a></li>
             </ul>
@@ -59,6 +55,7 @@ Logout</a></li>
                 <h1 class="capital">details</h1>
                 <div class="row">
                     <div class="col-md-8">
+                    
                         <div class="amounterm">
                             <h3 class="textCenter amountBtm"><img src="<c:url value="/resources/adminassets/images/aandm.png" />"> Amount & Term</h3>
                             <div class="amounttermData ">
@@ -71,20 +68,14 @@ Logout</a></li>
                                         <div class="col-sm-6">
                                             <div class="sldContainer">
                                                 <span class="leftLblspan">RM 5K</span>
-                                                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="5000" data-slider-max="50000" data-slider-step="1" data-slider-value="1000" />
+                                                <input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="5000" data-slider-max="50000" data-slider-step="1000" data-slider-value="10000" />
                                                 <span class="rightLblspan">RM 50K</span>
-
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
-                                            <span class="amtLbl pull-right">
-                        	RM <label id="valonc"> 5000 </label>
-                            </span>
+                                            <span class="amtLbl pull-right">RM <label id="valonc"> 5000 </label></span>
                                         </div>
                                     </div>
-
-
-
                                 </div>
                                 <div class="clearfix"></div>
                                 <input type="hidden" name="option" id="myoption">
@@ -143,9 +134,6 @@ Logout</a></li>
                             <div class=" aboutdata signUpformCnt">
 
                                 <div class="amounttermData dataright ">
-
-
-
                                     <h5 class="signUpHeader">Apply now with Facebook or Google+</h5>
 
                                     <div class="form_boxes sIconsCnt">
@@ -157,74 +145,38 @@ Logout</a></li>
 
                                     <span class="or_text orTxt">Or</span>
                                     <h5 class="signUpHeader" style="margin-bottom:25px;">Apply now with your email.</h5>
-
-                                    <!--div class="form-group">
-
-                                        <label class="col-sm-2 control-label">Name</label>
-                                        <div class="col-sm-10">
-                                            <div class="formFieldCont">
-                                                <input class="form-control" id="" type="text">
-                                                <span class="fldIcon">
-                                    	<img src="images/ic1.png" >
-                                    </span>
-                                            </div>
-                                        </div>
-
-                                    </div-->
-                                    <!--div class="form-group">
-
-                                        <label class="col-sm-2 control-label">Mobile No.</label>
-                                        <div class="col-sm-10">
-                                            <div class="formFieldCont">
-                                                <input class="form-control" id="" type="text">
-                                                <span class="fldIcon">
-                                    	<img src="images/ic2.png" >
-                                    </span>
-                                            </div>
-                                        </div>
-
-                                    </div-->
+									<c:url var="borrowerSignup" value="borrowerSignup" />
+                    				<form:form  action="${borrowerSignup}" id="demo-form" method="POST" modelAttribute="userLogin" autocomplete="off"> 
                                     <div class="form-group">
-
                                         <label class="col-sm-2 control-label">Email</label>
                                         <div class="col-sm-10">
                                             <div class="formFieldCont">
-                                                <input class="form-control" id="" type="text">
-                                                <span class="fldIcon">
-                                    	<img src="<c:url value="/resources/adminassets/images/ic4.png"/>" >
-                                    </span>
+                                            <form:input path="loginToken" id="idLoginEmail" required="true" class="form-control" placeholder="Enter Email ID" data-validation="required length email login_email" data-validation-length="max124"/>
+                                            <span class="fldIcon"> <img src="<c:url value="/resources/adminassets/images/ic4.png"/>" > </span>
                                             </div>
                                         </div>
-
                                     </div>
+                                    
                                     <div class="form-group">
-
-                                        <label class="col-sm-2 control-label">Password</label>
-                                        <div class="col-sm-10">
-                                            <div class="formFieldCont">
-                                                <input class="form-control" id="" type="text">
-                                                <span class="fldIcon">
-                                    	<img src="<c:url value="/resources/adminassets/images/ic5.png" />" >
-                                    </span>
-                                            </div>
-                                        </div>
-
+   										<label class="col-sm-2 control-label">Password</label>
+   										<div class="col-sm-10">
+       										<div class="formFieldCont">
+									           <form:password path="password" id="idPassword" required="true" class="form-control" placeholder="Enter Password" data-validation="custom"  data-validation-error-msg="Please enter the Password"/>
+									           <span class="fldIcon"> <img src="<c:url value="/resources/adminassets/images/ic5.png" />" > </span>
+									        </div>
+									    </div>
                                     </div>
+                                    
                                     <div class="form-group">
-
-                                        <label class="col-sm-2 control-label">Confirm Password
-                                        </label>
-                                        <div class="col-sm-10">
-                                            <div class="formFieldCont">
-                                                <input class="form-control" id="" type="text">
-                                                <span class="fldIcon">
-                                    	<img src="<c:url value="/resources/adminassets/images/ic5.png" />" >
-                                    </span>
-                                            </div>
-                                        </div>
-
+   										<label class="col-sm-2 control-label">Confirm Password</label>
+   										<div class="col-sm-10">
+       										<div class="formFieldCont">
+									           <form:password path="" id="idConfirmPassword" required="true" class="form-control" placeholder="Enter Confirm Password" data-validation="custom"  data-validation-error-msg="Please enter confirm Password"/>
+									           <span class="fldIcon"> <img src="<c:url value="/resources/adminassets/images/ic5.png" />" > </span>
+									        </div>
+									    </div>
                                     </div>
-
+                                    
                                     <div class="form-group">
 
                                         <label class="col-sm-2 control-label"> &nbsp; </label>
@@ -236,10 +188,9 @@ Logout</a></li>
                                 </div>
                             </div>
                         </div>
+						<form:button id="Verification_btn" type="submit" class="btn btnSignUp">Get a Quote Today</form:button>
 
-
-                        <a href="personalDetails" class="btn btnSignUp">Get a Quote Today</a>
-
+					</form:form>
                     </div>
                     <div class="col-md-4">
                         <div class="amounterm">
