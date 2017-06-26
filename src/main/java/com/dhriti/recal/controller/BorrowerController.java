@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dhriti.recal.core.utils.Global;
 import com.dhriti.recal.pojo.BorrowerDetails;
@@ -73,13 +75,13 @@ public class BorrowerController implements Serializable {
 	public String saveRegistration(@ModelAttribute("userLogin") BorrowerDetails userLogin, BindingResult result, HttpServletRequest request) {
 
 		BorrowerDetails isUserCreated = borrowerService.createBorrowerUser(userLogin, request);
+		String uid = isUserCreated.getUid() !=null ? isUserCreated.getUid() : "1";
 		request.getSession().setAttribute("keyId", isUserCreated.getKeyid());
-		//request.getSession().setAttribute("uid", isUserCreated.getUid());
+		request.getSession().setAttribute("uid", uid);
 		
 		LOG.info("Stauts : " + isUserCreated);
-		System.out.println("BORROWER DETAILS :: "+ userLogin.toString());
 		if (isUserCreated.getRespStatus().equals("SUCCESS_USR_REG")) {
-			return "redirect:/borrower/borrowerPersonalDetails";
+			return "redirect:/borrower/borrowerPersonalDetails?uid="+uid+"&keyId="+isUserCreated.getKeyid();
 		} else {
 			return "redirect:/borrower/signUp";
 		}
@@ -88,27 +90,75 @@ public class BorrowerController implements Serializable {
 
 	// After click on GetQuote wil display below Page
 	@GetMapping("/borrower/borrowerPersonalDetails")
-	public String signUpPersonalDetails(Model model, HttpServletRequest request) {
+	public String signUpPersonalDetails(@RequestParam String uid, @RequestParam String keyId, Model model, HttpServletRequest request) {
 
 		/*
 		 * model.addAttribute("employmentType","");
 		 * model.addAttribute("industry","");
 		 * model.addAttribute("lenghtService","");
 		 */
-		String  keyId = (String) request.getSession().getAttribute("keyId");
-		System.out.println("KeyId :: "+  keyId);
 		//long uid = (long) request.getSession().getAttribute("uid");
-		long uid = 166;
-		try {
+		/*try {
 			model.addAttribute("bankNames", borrowerService.getBankNames(request, keyId, uid));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 
 		return "borrower/personalDetails";
 	}
 
+	@RequestMapping(value = "/borrower/bankDetails", method = RequestMethod.POST)
+	@ResponseBody
+	public String getBankDetails(@RequestParam String uid, @RequestParam String keyId,  HttpServletRequest request) {
+		String result = "";
+		try {
+			result = borrowerService.getBankNames(request, keyId, uid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	
+	@RequestMapping(value = "/borrower/employmentType", method = RequestMethod.POST)
+	@ResponseBody
+	public String getEmploymentType(@RequestParam String uid, @RequestParam String keyId,  HttpServletRequest request) {
+		String result = "";
+		try {
+			result = borrowerService.getEmploymentType(request, keyId, uid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	
+	@RequestMapping(value = "/borrower/industryDetails", method = RequestMethod.POST)
+	@ResponseBody
+	public String getIndustryDetails(@RequestParam String uid, @RequestParam String keyId,  HttpServletRequest request) {
+		String result = "";
+		try {
+			result = borrowerService.getIndustryDetails(request, keyId, uid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+	
+	@RequestMapping(value = "/borrower/serviceLength", method = RequestMethod.POST)
+	@ResponseBody
+	public String getServiceLength(@RequestParam String uid, @RequestParam String keyId,  HttpServletRequest request) {
+		String result = "";
+		try {
+			result = borrowerService.getServiceLength(request, keyId, uid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return result;
+	}
 	
 
 }

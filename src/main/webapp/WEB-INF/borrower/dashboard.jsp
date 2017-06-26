@@ -10,7 +10,12 @@
                         <div class="cb_mid">
                             <h1>Dashboard</h1>
                             <p>You currently have no application</p>
-                            <p>To apply new application, <a href="#">Click here</a>.</p>
+                            <form action="borrowerPersonalDetails" method="GET" enctype="multipart/form-data" id="hiddenForm1">
+                            <input type="hidden" id="uid" name="uid">
+                            <input type="hidden" id="keyId" name="keyId">
+                             <p>To apply new application, <a href="javascript:void(0)">Click here</a>.</p>
+                            </form>
+                           
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-5 col-xs-12">
@@ -38,3 +43,13 @@
         </div>
 
     </div>
+<script>
+$('#hiddenForm1 a').click(function(){
+	var uid = Cookies.get('uid');
+	var keyId = Cookies.get('keyId');
+	
+	$('#keyId').val(keyId);
+	$('#uid').val(uid);
+	$('#hiddenForm1').submit();
+});
+</script>

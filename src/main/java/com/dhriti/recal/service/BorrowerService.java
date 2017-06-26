@@ -18,15 +18,53 @@ public interface BorrowerService {
 	 */
 	BorrowerDetails createBorrowerUser(BorrowerDetails userLogin, HttpServletRequest request);
 
-	public String getBankNames(HttpServletRequest request, String keyId, long uid) throws Exception;
-
 	/**
 	 * 
 	 * @param loginid
 	 * @param password
-	 * @param resp 
+	 * @param resp
 	 * @return
 	 */
 	public String userAuthentication(String loginid, String password, HttpServletResponse resp);
+
+	/**
+	 * 
+	 * @param request
+	 * @param keyId
+	 * @param uid
+	 * @return
+	 * @throws Exception
+	 */
+	public String getBankNames(HttpServletRequest request, String keyId, String uid) throws Exception;
+
+	/**
+	 * 
+	 * @param request
+	 * @param keyId
+	 * @param uid
+	 * @return
+	 * @throws Exception
+	 */
+	public String getEmploymentType(HttpServletRequest request, String keyId, String uid) throws Exception;
+
+	/**
+	 * 
+	 * @param request
+	 * @param keyId
+	 * @param uid
+	 * @throws Exception
+	 * @return
+	 */
+	public String getIndustryDetails(HttpServletRequest request, String keyId, String uid) throws Exception;
+
+	/**
+	 * 
+	 * @param request
+	 * @param keyId
+	 * @param uid
+	 * @throws Exception
+	 * @return
+	 */
+	public String getServiceLength(HttpServletRequest request, String keyId, String uid) throws Exception;
 
 }

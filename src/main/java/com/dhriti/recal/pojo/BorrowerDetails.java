@@ -7,9 +7,9 @@ public class BorrowerDetails implements Serializable {
 	private static final long serialVersionUID = 4462954153923939923L;
 
 	private String keyid;
-	
-	private long uid;
-	
+
+	private String uid;
+
 	private String respStatus;
 	// We use LoginToken as the definition of User ID, since UserID is a an
 	// auto-increment field
@@ -77,11 +77,11 @@ public class BorrowerDetails implements Serializable {
 		this.keyid = keyid;
 	}
 
-	public long getUid() {
+	public String getUid() {
 		return uid;
 	}
 
-	public void setUid(long uid) {
+	public void setUid(String uid) {
 		this.uid = uid;
 	}
 
@@ -306,7 +306,5 @@ public class BorrowerDetails implements Serializable {
 				+ referralCode + ", bankName=" + bankName + ", accountNo=" + accountNo + ", accountHolderName="
 				+ accountHolderName + "]";
 	}
-
-	
 
 }

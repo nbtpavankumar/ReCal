@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="<c:url value="/resources/adminassets/css/bootstrap.min.css"/>" />
     <link rel="stylesheet" href="<c:url value="/resources/adminassets/css/font-awesome.css"/>" />
     <link rel="stylesheet" href="<c:url value="/resources/adminassets/css/build.css"/>" />
-
+	<script type="text/javascript" src="<c:url value="/resources/adminassets/js/js.cookie.js" />"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <script type="text/jscript">

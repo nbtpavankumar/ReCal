@@ -1,34 +1,35 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <%@ include file="/WEB-INF/admin/includes/header.jsp" %>
-<head>
-
-    <meta charset="UTF-8">
-    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Personal Details</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/assets/icons/fontawesome/css/font-awesome.css"/>">
-
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap-theme.css"/>">
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/awesome-bootstrap-checkbox.css"/>">
-
-    <!-- Admin theme -->
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/ringgit.css"/>">
-
-    <!-- Admin responsive -->
-    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/admin-responsive.css"/>">
-
-    <!-- JS Core -->
-
-    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/jquery-3.1.1.min.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="/resources/adminassets/assets/js-core/modernizr.js"/>"></script>
 
 
-</head>
+<!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+<title>Personal Details</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<body>
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/assets/icons/fontawesome/css/font-awesome.css"/>">
+
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap.min.css"/>">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/bootstrap-theme.css"/>">
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/awesome-bootstrap-checkbox.css"/>">
+
+<!-- Admin theme -->
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/ringgit.css"/>">
+
+<!-- Admin responsive -->
+<link rel="stylesheet" type="text/css" href="<c:url value="/resources/adminassets/css/admin-responsive.css"/>">
+
+<!-- JS Core -->
+
+<script type="text/javascript" src="<c:url value="/resources/adminassets/js/jquery-3.1.1.min.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/adminassets/assets/js-core/modernizr.js"/>"></script>
+
+
 
     <div class="header_new active top_bar_header">
         <div class="ringgetnsen_logo"><img src="<c:url value="/resources/adminassets/images/Logo.png"/>"></div>
@@ -50,6 +51,8 @@ Logout</a></li>
                 <h1 class="capital">personal details</h1>
                 <div class="row">
                     <div class="col-md-8">
+                     <c:url var="borrowerLoanApply" value="borrowerLoanApply" />
+                    <form:form  action="${borrowerLoanApply}" id="demo-form" method="POST" modelAttribute="userLogin" autocomplete="off"> 
                         <div class="amounterm">
                             <h3 class="textCenter amountBtm">
                                 <img src="<c:url value="/resources/adminassets/images/aandm.png"/>">
@@ -75,11 +78,6 @@ Logout</a></li>
                                 </div>
                             </div>
                         </div>
-
-
-
-                        <!--sssssss-->
-
 
                         <div class="amounterm aboutyourself">
                             <h3 class="textCenter amountBtm">
@@ -181,16 +179,7 @@ Logout</a></li>
                                             <label class="col-sm-3 control-label">Type of Employment</label>
                                             <div class="col-sm-8">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">select 1</a></li>
-                                                        <li><a href="#">select 2</a></li>
-                                                        <li><a href="#">select 3</a></li>
-
-                                                    </ul>
+                                                    <select id="empTypeSelect"></select>
                                                 </div>
                                             </div>
                                         </div>
@@ -210,16 +199,7 @@ Logout</a></li>
                                             <label class="col-sm-3 control-label">Industry</label>
                                             <div class="col-sm-8">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">select 1</a></li>
-                                                        <li><a href="#">select 2</a></li>
-                                                        <li><a href="#">select 3</a></li>
-
-                                                    </ul>
+                                                	<select id="industryDetails"></select>
                                                 </div>
                                             </div>
                                         </div>
@@ -231,16 +211,7 @@ Logout</a></li>
                                                 Business in operation /length of service</label>
                                             <div class="col-sm-8">
                                                 <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">select 1</a></li>
-                                                        <li><a href="#">select 2</a></li>
-                                                        <li><a href="#">select 3</a></li>
-
-                                                    </ul>
+                                                    <select id="serviceLength"></select>
                                                 </div>
                                             </div>
                                         </div>
@@ -305,19 +276,9 @@ Logout</a></li>
                                             <div class="col-md-1"></div>
                                             <label class="col-sm-3 control-label">Bank Name</label>
                                             <div class="col-sm-8">
-                                                <div class="dropdown">
-                                                    <button class="btn btn-default dropdown-toggle dropdowns" type="button" data-toggle="dropdown">
-                                                        Select
-                                                        <span class="caret"></span>
-                                                    </button>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="#">HTML</a></li>
-                                                        <li><a href="#">CSS</a></li>
-                                                        <li><a href="#">JavaScript</a></li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="#">About Us</a></li>
-                                                    </ul>
-                                                </div>
+                                            <div class="dropdown">
+                                            <select id="bankSelect"></select>
+                                            </div>
                                             </div>
                                         </div>
                                     </form>
@@ -349,16 +310,8 @@ Logout</a></li>
                                             </div>
                                         </div>
                                     </form>
-
-
-
-
-
-
-
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="amounterm aboutyourself">
@@ -390,15 +343,9 @@ Logout</a></li>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
-
-
                         <a class="btn btnSignUp" href="personalDetailsView">Next</a>
-
-
-
+				</form:form>
                     </div>
                     <div class="col-md-4">
                         <div class="amounterm">
@@ -587,8 +534,10 @@ prepayment penalties
     </div>
 
     <!-- WIDGETS -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap.min.js"/>"></script>
     <script>
+    var uid = Cookies.get('uid');
+	var keyId = Cookies.get('keyId');
         $('#stateDropdown > li > a').click(function (e) {
             $(this).closest('.mdStateDrop').fadeOut();
             var attrB = $(this).attr('href');
@@ -602,4 +551,84 @@ prepayment penalties
             $('#stateDrop').val(getVal);
             $('.mdStateDrop, .mdCityDrop').removeAttr('style');
         });
+        
+        var siteurl = document.location.origin;
+        var url = siteurl + "/recal/borrower/bankDetails";
+        $.ajax({
+        	type : "POST",
+        	url:url,
+        	
+        	 dataType: 'json',
+        	data:{uid:uid, keyId:keyId},
+        		success: function(data){
+        		
+        			var bankNames = data.responseDetails;
+        			$(bankNames).each(function(index,obj){
+        				var temp = $('<option  values ="'+ obj.bankName+'">');
+        				$(temp).text(obj.bankName);
+        				
+        				$('#bankSelect').append(temp);
+        			});
+        		}
+        });
+        
+        var siteurl = document.location.origin;
+        var url = siteurl + "/recal/borrower/employmentType";
+        $.ajax({
+        	type : "POST",
+        	url:url,
+        	
+        	 dataType: 'json',
+        	data:{uid:uid, keyId:keyId},
+        		success: function(data){
+        		
+        			var bankNames = data.responseDetails;
+        			$(bankNames).each(function(index,obj){
+        				var temp = $('<option values ="'+ obj.configValues+'">');
+        				$(temp).text(obj.configMappedValues);
+        				$('#empTypeSelect').append(temp);
+        			});
+        		}
+        });
+        
+        var siteurl = document.location.origin;
+        var url = siteurl + "/recal/borrower/industryDetails";
+        $.ajax({
+        	type : "POST",
+        	url:url,
+        	
+        	 dataType: 'json',
+        	data:{uid:uid, keyId:keyId},
+        		success: function(data){
+        		
+        			var bankNames = data.responseDetails;
+        			$(bankNames).each(function(index,obj){
+        				var temp = $('<option values ="'+ obj.configValues+'">');
+        				$(temp).text(obj.configMappedValues);
+        				$('#industryDetails').append(temp);
+        			});
+        		}
+        });
+        
+        var siteurl = document.location.origin;
+        var url = siteurl + "/recal/borrower/serviceLength";
+        $.ajax({
+        	type : "POST",
+        	url:url,
+        	
+        	 dataType: 'json',
+        	data:{uid:uid, keyId:keyId},
+        		success: function(data){
+        		
+        			var bankNames = data.responseDetails;
+        			$(bankNames).each(function(index,obj){
+        				console.log(obj);
+        				var temp = $('<option values ="'+ obj+'">');
+        				$(temp).text(obj);
+        				$('#serviceLength').append(temp);
+        			});
+        		}
+        });
+        
+        
     </script>

@@ -84,7 +84,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 		String status = "", loginToken = "";
 		String msg = "";
 		String retResult = "";
-		long userId = 0;
+		String userId = "0";
 
 		try {
 			JSONParser parser = new JSONParser();
@@ -114,51 +114,9 @@ public class BorrowerServiceImpl implements BorrowerService {
 	}
 
 	@Override
-	public String getBankNames(HttpServletRequest request, String keyId, long uid) throws Exception {
-
-		HttpSession session = request.getSession();
-
-		String jsonResult = "";
-		String result = "";
-		String siteMode = env.getProperty("site.mode");
-		String userName = env.getProperty("api.username");
-		String pass = env.getProperty("api.password");
-
-		String apiUrl = "";
-
-		if (siteMode.equalsIgnoreCase("development"))
-			apiUrl = env.getProperty("api.dev.bank.url");
-		else
-			apiUrl = env.getProperty("api.prod.bank.url");
-
-		// create resteasy clinet
-		ResteasyClient client = new ResteasyClientBuilder().build();
-		ResteasyWebTarget target = client.target(apiUrl);
-		target.register(new BasicAuthentication(userName, pass));
-
-		Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
-
-		System.out.println("KEY ID :: " + keyId + " UID :: " + uid);
-
-		jsonResult = response.readEntity(String.class);
-
-		// System.out.println("json"+jsonResult);
-		response.close(); // You should close connections!
-
-		// parse json to get key and keyid
-		JSONParser parser = new JSONParser();
-		JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
-		System.out.println("jsonObject :: " + jsonObject.toJSONString());
-		return null;
-	}
-
-	@Override
 	public String userAuthentication(String loginid, String password, HttpServletResponse resp) {
 
-		System.out.println("User Login Checking here....");
 		String[] strAuthKey = adminService.getAuthKey().split(":");
-
-		System.out.println("ADMIn KEY :: " + strAuthKey[1]);
 
 		String siteMode = env.getRequiredProperty("site.mode");
 		String userName = env.getRequiredProperty("api.username");
@@ -195,7 +153,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 		String result = response.readEntity(String.class);
 		response.close();
 
-		System.out.println("RESULT :: " + result);
+		LOG.info("RESULT :: " + result);
 		String status = "";
 		String msg = "";
 		String retResult = "";
@@ -215,8 +173,12 @@ public class BorrowerServiceImpl implements BorrowerService {
 			// check status and message
 			if (status.equalsIgnoreCase("SERVER_SUCCESS") && msg.equalsIgnoreCase("AUTHENTICATE_SUCCESS")) {
 				retResult = "success:" + userId + ":" + strAuthKey[1];
+				resp.addCookie(new Cookie("userId", Long.toString(userId)));
+				resp.addCookie(new Cookie("keyId", strAuthKey[1]));
 			} else {
 				retResult = "failure:0:";
+				resp.addCookie(new Cookie("userId", ""));
+				resp.addCookie(new Cookie("keyId", ""));
 			}
 
 		} catch (ParseException e) {
@@ -225,6 +187,150 @@ public class BorrowerServiceImpl implements BorrowerService {
 
 		return retResult;
 
+	}
+
+	@Override
+	public String getBankNames(HttpServletRequest request, String keyId, String uid) throws Exception {
+
+		HttpSession session = request.getSession();
+
+		String jsonResult = "";
+		String result = "";
+		String siteMode = env.getProperty("site.mode");
+		String userName = env.getProperty("api.username");
+		String pass = env.getProperty("api.password");
+
+		String apiUrl = "";
+
+		if (siteMode.equalsIgnoreCase("development"))
+			apiUrl = env.getProperty("api.dev.bank.url");
+		else
+			apiUrl = env.getProperty("api.prod.bank.url");
+
+		// create resteasy clinet
+		ResteasyClient client = new ResteasyClientBuilder().build();
+		ResteasyWebTarget target = client.target(apiUrl);
+		target.register(new BasicAuthentication(userName, pass));
+
+		Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+
+		jsonResult = response.readEntity(String.class);
+
+		response.close(); // You should close connections!
+
+		// parse json to get key and keyid
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
+		result = jsonObject.toJSONString();
+		return result;
+	}
+
+	@Override
+	public String getEmploymentType(HttpServletRequest request, String keyId, String uid) throws Exception {
+
+		HttpSession session = request.getSession();
+
+		String jsonResult = "";
+		String result = "";
+		String siteMode = env.getProperty("site.mode");
+		String userName = env.getProperty("api.username");
+		String pass = env.getProperty("api.password");
+
+		String apiUrl = "";
+
+		if (siteMode.equalsIgnoreCase("development"))
+			apiUrl = env.getProperty("api.dev.employmenttype.url");
+		else
+			apiUrl = env.getProperty("api.prod.employmenttype.url");
+
+		// create resteasy clinet
+		ResteasyClient client = new ResteasyClientBuilder().build();
+		ResteasyWebTarget target = client.target(apiUrl);
+		target.register(new BasicAuthentication(userName, pass));
+
+		Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+
+		jsonResult = response.readEntity(String.class);
+
+		response.close(); // You should close connections!
+
+		// parse json to get key and keyid
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
+		result = jsonObject.toJSONString();
+		return result;
+	}
+
+	@Override
+	public String getIndustryDetails(HttpServletRequest request, String keyId, String uid) throws Exception {
+
+		HttpSession session = request.getSession();
+
+		String jsonResult = "";
+		String result = "";
+		String siteMode = env.getProperty("site.mode");
+		String userName = env.getProperty("api.username");
+		String pass = env.getProperty("api.password");
+
+		String apiUrl = "";
+
+		if (siteMode.equalsIgnoreCase("development"))
+			apiUrl = env.getProperty("api.dev.industry.url");
+		else
+			apiUrl = env.getProperty("api.prod.industry.url");
+
+		// create resteasy clinet
+		ResteasyClient client = new ResteasyClientBuilder().build();
+		ResteasyWebTarget target = client.target(apiUrl);
+		target.register(new BasicAuthentication(userName, pass));
+
+		Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+
+		jsonResult = response.readEntity(String.class);
+
+		response.close(); // You should close connections!
+
+		// parse json to get key and keyid
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
+		result = jsonObject.toJSONString();
+		return result;
+	}
+
+	@Override
+	public String getServiceLength(HttpServletRequest request, String keyId, String uid) throws Exception {
+
+		HttpSession session = request.getSession();
+
+		String jsonResult = "";
+		String result = "";
+		String siteMode = env.getProperty("site.mode");
+		String userName = env.getProperty("api.username");
+		String pass = env.getProperty("api.password");
+
+		String apiUrl = "";
+
+		if (siteMode.equalsIgnoreCase("development"))
+			apiUrl = env.getProperty("api.dev.serviceLength.url");
+		else
+			apiUrl = env.getProperty("api.prod.serviceLength.url");
+
+		// create resteasy clinet
+		ResteasyClient client = new ResteasyClientBuilder().build();
+		ResteasyWebTarget target = client.target(apiUrl);
+		target.register(new BasicAuthentication(userName, pass));
+
+		Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
+
+		jsonResult = response.readEntity(String.class);
+
+		response.close(); // You should close connections!
+
+		// parse json to get key and keyid
+		JSONParser parser = new JSONParser();
+		JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
+		result = jsonObject.toJSONString();
+		return result;
 	}
 
 }
