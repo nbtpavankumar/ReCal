@@ -1,6 +1,6 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/admin/includes/header.jsp" %>
-
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ include file="/WEB-INF/admin/includes/borrowerHeader.jsp" %>
+<link href="<c:url value="/resources/adminassets/css/admin.css" />" media="screen" rel="stylesheet" />
     <div class="content_area">
         <div class="content_inner">
             <div class="content_box_wrap">
@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="trf_right_row">
                                         <a href="#">
-                                            <img src="images/call_icon.png"> +00-123456789
+                                            <img src="<c:url value="/resources/adminassets/images/call_icon.png"/>"> +00-123456789
                                         </a>
                                     </div>
                                 </div>
@@ -38,6 +38,3 @@
         </div>
 
     </div>
-</body>
-
-</html>

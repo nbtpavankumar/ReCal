@@ -1,5 +1,7 @@
 package com.dhriti.recal.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dhriti.recal.service.AdminService;
+import com.dhriti.recal.service.BorrowerService;
 
 /**
  * 
@@ -23,6 +26,9 @@ public class AdminController {
 
 	@Autowired
 	AdminService adminService;
+	
+	@Autowired
+	BorrowerService borrowerService;
 
 	// Welcome page
 	@GetMapping("/home")
@@ -49,19 +55,23 @@ public class AdminController {
 	// Admin Login Page
 	@GetMapping("/admin")
 	public String adminLogin(Model model) {
+		
 		return "admin/login";
 	}
-
 
 	// Validate the user credentials
 	@RequestMapping(value = "/admin/checklogin", method = RequestMethod.POST)
 	@ResponseBody
-	public String adminLogin(@RequestParam String loginid, @RequestParam String password) {
+	public String adminLogin(@RequestParam String loginid, @RequestParam String password, HttpServletResponse resp) {
 
 		String result = "";
 
 		try {
-			result = adminService.adminAuthentication(loginid, password);
+			if ("sebadmin".equalsIgnoreCase(loginid)) {
+				result = adminService.adminAuthentication(loginid, password);
+			} else {
+				result = borrowerService.userAuthentication(loginid, password, resp);
+			}
 		} catch (Exception exp) {
 			exp.printStackTrace();
 		}
@@ -131,7 +141,8 @@ public class AdminController {
 
 	@RequestMapping(value = "/admin/listapplications", method = RequestMethod.POST)
 	@ResponseBody
-	public String listapplication(@RequestParam String searchval, @RequestParam String uid, @RequestParam String keyId) {
+	public String listapplication(@RequestParam String searchval, @RequestParam String uid,
+			@RequestParam String keyId) {
 
 		String result = "{  \"data\": [";
 		String jsonResult = "";
@@ -203,7 +214,7 @@ public class AdminController {
 		model.addAttribute("page", "llpMaster");
 		return "admin/llpMaster";
 	}
-	
+
 	@RequestMapping(value = "/admin/createLLPMaster", method = RequestMethod.GET)
 	public String createLLPMaster(ModelMap model) {
 		model.addAttribute("page", "createLLPMaster");

@@ -2,7 +2,9 @@ package com.dhriti.recal.service.impl;
 
 import java.security.PublicKey;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Response;
@@ -14,6 +16,7 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -81,6 +84,7 @@ public class BorrowerServiceImpl implements BorrowerService {
 		String status = "", loginToken = "";
 		String msg = "";
 		String retResult = "";
+		long userId = 0;
 
 		try {
 			JSONParser parser = new JSONParser();
@@ -90,8 +94,9 @@ public class BorrowerServiceImpl implements BorrowerService {
 			msg = (String) jsonObject.get("message");
 
 			JSONObject objDetails = (JSONObject) jsonObject.get("responseDetails");
-			// loginToken = objDetails.get("loginToken") != null ? (String)
-			// objDetails.get("loginToken"):"";
+			// userId = (Long) objDetails.get("userId");
+			isUserCreated.setUid(userId);
+
 			LOG.info("REPONSE SUCCESS STATUS :: " + status);
 			if (status.equalsIgnoreCase("SERVER_SUCCESS") && msg.equalsIgnoreCase("SUCCESS_USR_REG")) {
 				retResult = "success:" + userLogin.getLoginToken() + ":" + strAuthKey[1];
@@ -109,18 +114,16 @@ public class BorrowerServiceImpl implements BorrowerService {
 	}
 
 	@Override
-	public String getBankNames(HttpServletRequest request, String keyId) throws Exception {
+	public String getBankNames(HttpServletRequest request, String keyId, long uid) throws Exception {
 
 		HttpSession session = request.getSession();
 
-		String uid = "1";
 		String jsonResult = "";
 		String result = "";
 		String siteMode = env.getProperty("site.mode");
 		String userName = env.getProperty("api.username");
 		String pass = env.getProperty("api.password");
 
-		
 		String apiUrl = "";
 
 		if (siteMode.equalsIgnoreCase("development"))
@@ -135,6 +138,8 @@ public class BorrowerServiceImpl implements BorrowerService {
 
 		Response response = target.request().header("keyid", keyId).header("uid", uid).post(null);
 
+		System.out.println("KEY ID :: " + keyId + " UID :: " + uid);
+
 		jsonResult = response.readEntity(String.class);
 
 		// System.out.println("json"+jsonResult);
@@ -145,6 +150,81 @@ public class BorrowerServiceImpl implements BorrowerService {
 		JSONObject jsonObject = (JSONObject) parser.parse(jsonResult);
 		System.out.println("jsonObject :: " + jsonObject.toJSONString());
 		return null;
+	}
+
+	@Override
+	public String userAuthentication(String loginid, String password, HttpServletResponse resp) {
+
+		System.out.println("User Login Checking here....");
+		String[] strAuthKey = adminService.getAuthKey().split(":");
+
+		System.out.println("ADMIn KEY :: " + strAuthKey[1]);
+
+		String siteMode = env.getRequiredProperty("site.mode");
+		String userName = env.getRequiredProperty("api.username");
+		String pass = env.getRequiredProperty("api.password");
+		String userToken = null;
+
+		String apiUrl = "";
+
+		if (siteMode.equalsIgnoreCase("development"))
+			apiUrl = env.getRequiredProperty("api.dev.userlogin.url");
+		else
+			apiUrl = env.getRequiredProperty("api.prod.userlogin.url");
+
+		// create resteasy clinet
+		ResteasyClient client = new ResteasyClientBuilder().build();
+		ResteasyWebTarget target = client.target(apiUrl);
+		target.register(new BasicAuthentication(userName, pass));
+
+		String jsonRequest = "";
+
+		try {
+			PublicKey publicKey = PasswordUtil.generatePublicKey(strAuthKey[0]);
+
+			// create json string
+			jsonRequest = "{\"loginToken\": \"" + loginid + "\", \"password\": \""
+					+ PasswordUtil.toHex(PasswordUtil.encrypt(password.getBytes(), publicKey)) + "\"}";
+
+		} catch (Exception exp) {
+			exp.printStackTrace();
+		}
+
+		Response response = target.request().header("key", strAuthKey[0]).header("keyid", strAuthKey[1])
+				.post(Entity.entity(jsonRequest, javax.ws.rs.core.MediaType.APPLICATION_JSON_TYPE));
+		String result = response.readEntity(String.class);
+		response.close();
+
+		System.out.println("RESULT :: " + result);
+		String status = "";
+		String msg = "";
+		String retResult = "";
+		long userId = 0;
+
+		try {
+
+			JSONParser parser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) parser.parse(result);
+
+			status = (String) jsonObject.get("serverStatus");
+			msg = (String) jsonObject.get("message");
+
+			JSONObject objDetails = (JSONObject) jsonObject.get("responseDetails");
+			userId = (Long) objDetails.get("userId");
+
+			// check status and message
+			if (status.equalsIgnoreCase("SERVER_SUCCESS") && msg.equalsIgnoreCase("AUTHENTICATE_SUCCESS")) {
+				retResult = "success:" + userId + ":" + strAuthKey[1];
+			} else {
+				retResult = "failure:0:";
+			}
+
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		return retResult;
+
 	}
 
 }

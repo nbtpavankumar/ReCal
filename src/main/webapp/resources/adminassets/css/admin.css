@@ -1,0 +1,1570 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'DosisRegular';
+    
+}
+
+.clear {
+    clear: both;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border: none;
+    text-decoration: none;
+}
+
+.header_top {
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.ht_inner {
+    width: 1150px;
+    margin: 0 auto;
+}
+
+.hti_logo {
+    width: 50%;
+    float: left;
+}
+
+.ht_user {
+    width: 50%;
+    float: left;
+    text-align: right;
+    padding: 10px 0 0 0;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    background: #d9dcdc;
+    float: left;
+}
+
+.hr_inner {
+    width: 1150px;
+    margin: 0 auto;
+}
+
+.logo {
+    position: relative;
+    z-index: 123;
+    padding: 10px;
+    font-family: 'DosisSemiBold';
+    font-size: 18px;
+    color: #951b81;
+    float: left;
+    width: 15%;
+    text-transform: uppercase;
+    display: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo a {
+    color: #0077d2;
+}
+
+.content_area {
+    width: 100%;
+    float: left;
+    padding: 20px 0 0 0;
+}
+
+.content_inner {
+    width: 1150px;
+    margin: 0 auto;
+}
+
+.content_heading {
+    width: 100%;
+    float: left;
+    padding: 20px 0 10px 2%;
+    font-size: 25px;
+    font-family: 'DosisMedium';
+    color: #5d5d5d;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.content_heading img {
+    vertical-align: middle;
+}
+
+.content_box_wrap {
+    width: 100%;
+    float: left;
+    background: #fff;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 0 0 1px rgba(211, 211, 211, 1);
+    box-shadow: 0 0 0 1px rgba(211, 211, 211, 1);
+}
+
+.cb_mid {
+    width: 100%;
+    float: left;
+    padding: 20px 2%;
+    position: relative;
+}
+
+
+/*Ra Data Table*/
+
+.table {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.reshudle_wrap {
+    width: 100%;
+    float: left;
+}
+
+.table-bordered > thead > tr > th {
+    font-size: 15px!important;
+    font-family: 'DosisSemiBold' !important;
+    color: #5d5d5d !important;
+    font-weight: normal !important;
+    background: #0087ef;
+    color: #fff !important;
+}
+
+.table-bordered > tbody > tr > td {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 12px !important;
+    color: #5e5e5e !important
+}
+
+.table-bordered > tbody > tr > td > a {
+    color: #0087ef !important;
+}
+
+.green {
+    color: #436d27 !important;
+}
+
+.marg_top_10 {
+    margin-top: 10px;
+}
+
+
+/*Ra Data Table*/
+
+
+/*Ra Shadule Task*/
+
+.st_wrap {
+    width: 100%;
+    float: left;
+}
+
+.st_row {
+    width: 100%;
+    float: left;
+    padding: 0 0 15px 0;
+}
+
+.str_left {
+    width: 15%;
+    float: left;
+    padding: 0 3% 0 0;
+    font-size: 15px;
+    font-family: 'DosisMedium';
+    text-align: left;
+    color: #545454;
+}
+
+.str_right {
+    width: 45%;
+    float: left;
+}
+
+.select_box1 {
+    width: 100%;
+}
+
+.demo {
+    position: relative;
+}
+
+.demo i {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    top: auto;
+    cursor: pointer;
+}
+
+.st_row_bttn {
+    width: 85%;
+    float: left;
+    padding: 0 0 15px 15%;
+}
+
+.bttn_base {
+    padding: 7px 25px;
+    font-size: 16px;
+    font-family: 'DosisSemiBold';
+    float: left;
+    border-radius: 4px;
+}
+
+.recall_bttn {
+    background-color: #0087ef;
+    color: #fff;
+}
+
+.recall_bttn:hover {
+    background-color: #0073cb;
+    color: #fff !important;
+}
+
+
+/*Ra End Shadule Task*/
+
+
+/*Investor Dashboard*/
+
+.investor_logo {
+    float: left;
+    padding: 12px 0 0;
+    width: 18%;
+}
+
+.investor_menu {
+    width: 70%;
+    float: left;
+}
+
+header {
+    position: relative;
+    width: 100%;
+    background: #fff;
+}
+
+.logo_menu {
+    position: relative;
+    z-index: 123;
+    padding: 10px;
+    font: 18px verdana;
+    color: #6DDB07;
+    float: left;
+    width: 15%;
+    display: none;
+}
+
+.logo_menu a {
+    color: #6DDB07;
+}
+
+nav {
+    position: relative;
+    width: 675px;
+    margin: 0 auto;
+    float: right
+}
+
+#cssmenu,
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul li a,
+#cssmenu #head-mobile {
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+#cssmenu:after,
+#cssmenu > ul:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0
+}
+
+#cssmenu #head-mobile {
+    display: none
+}
+
+#cssmenu {
+    font-family: sans-serif;
+    background: #fff
+}
+
+#cssmenu > ul > li {
+    float: left
+}
+
+#cssmenu > ul > li > a {
+    padding: 17px;
+    font-size: 17px;
+    letter-spacing: 0;
+    font-family: 'DosisMedium';
+    text-decoration: none;
+    color: #8b8b8b;
+}
+
+#cssmenu > ul > li:hover > a,
+#cssmenu ul li.active a {
+    color: #fff
+}
+
+#cssmenu > ul > li:hover,
+#cssmenu ul li.active:hover,
+#cssmenu ul li.active,
+#cssmenu ul li.has-sub.active:hover {
+    background: #0087ef!important;
+    -webkit-transition: background .3s ease;
+    -ms-transition: background .3s ease;
+    transition: background .3s ease;
+}
+
+#cssmenu > ul > li.has-sub > a {
+    padding-right: 30px
+}
+
+#cssmenu > ul > li.has-sub > a:after {
+    position: absolute;
+    top: 22px;
+    right: 11px;
+    width: 8px;
+    height: 2px;
+    display: block;
+    background: #ddd;
+    content: ''
+}
+
+#cssmenu > ul > li.has-sub > a:before {
+    position: absolute;
+    top: 19px;
+    right: 14px;
+    display: block;
+    width: 2px;
+    height: 8px;
+    background: #ddd;
+    content: '';
+    -webkit-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease
+}
+
+#cssmenu > ul > li.has-sub:hover > a:before {
+    top: 23px;
+    height: 0
+}
+
+#cssmenu ul ul {
+    position: absolute;
+    left: -9999px
+}
+
+#cssmenu ul ul li {
+    height: 0;
+    -webkit-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    background: #333;
+    transition: all .25s ease
+}
+
+#cssmenu ul ul li:hover {}
+
+#cssmenu li:hover > ul {
+    left: auto
+}
+
+#cssmenu li:hover > ul > li {
+    height: 35px
+}
+
+#cssmenu ul ul ul {
+    margin-left: 100%;
+    top: 0
+}
+
+#cssmenu ul ul li a {
+    border-bottom: 1px solid rgba(150, 150, 150, 0.15);
+    padding: 11px 15px;
+    width: 170px;
+    font-size: 12px;
+    text-decoration: none;
+    color: #ddd;
+    font-weight: 400;
+}
+
+#cssmenu ul ul li:last-child > a,
+#cssmenu ul ul li.last-item > a {
+    border-bottom: 0
+}
+
+#cssmenu ul ul li:hover > a,
+#cssmenu ul ul li a:hover {
+    color: #fff
+}
+
+#cssmenu ul ul li.has-sub > a:after {
+    position: absolute;
+    top: 16px;
+    right: 11px;
+    width: 8px;
+    height: 2px;
+    display: block;
+    background: #ddd;
+    content: ''
+}
+
+#cssmenu ul ul li.has-sub > a:before {
+    position: absolute;
+    top: 13px;
+    right: 14px;
+    display: block;
+    width: 2px;
+    height: 8px;
+    background: #ddd;
+    content: '';
+    -webkit-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease
+}
+
+#cssmenu ul ul > li.has-sub:hover > a:before {
+    top: 17px;
+    height: 0
+}
+
+#cssmenu ul ul li.has-sub:hover,
+#cssmenu ul li.has-sub ul li.has-sub ul li:hover {
+    background: #363636;
+}
+
+#cssmenu ul ul ul li.active a {
+    border-left: 1px solid #333
+}
+
+#cssmenu > ul > li.has-sub > ul > li.active > a,
+#cssmenu > ul ul > li.has-sub > ul > li.active> a {
+    border-top: 1px solid #333
+}
+
+.inv_dash_top {
+    width: 100%;
+    float: left;
+    padding: 0px 0 30px 0;
+}
+
+.idt_box {
+    width: 31.3%;
+    float: left;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 0 2px rgba(0, 135, 239, 1);
+    box-shadow: 0 0 0 2px rgba(0, 135, 239, 1);
+    margin: 0 1%;
+    overflow: hidden;
+}
+
+.idt_box_inner1 {
+    width: 100%;
+    float: left;
+    background: #0087ef;
+    border-radius: 4px;
+    padding: 10px 0;
+    height: 165px;
+}
+
+.idt_box_heading1 {
+    width: 100%;
+    text-align: center;
+    font-family: 'DosisMedium';
+    color: #fff;
+    font-size: 22px;
+    padding: 0 0 20px 0;
+    line-height: 25px;
+}
+
+.idt_box_amount1 {
+    width: 100%;
+    text-align: center;
+    font-family: 'DosisMedium';
+    color: #fff;
+    font-size: 28px;
+    padding: 0 0 15px 0;
+    line-height: 30px;
+}
+
+.idt_box_text {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-family: 'DosisMedium';
+    color: #fff;
+    font-size: 18px;
+}
+
+.idt_box_inner2 {
+    width: 100%;
+    float: left;
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px 0;
+    height: 165px;
+}
+
+.idt_box_heading2 {
+    width: 100%;
+    text-align: center;
+    font-family: 'DosisMedium';
+    color: #0087ef;
+    font-size: 22px;
+    padding: 0 0 20px 0;
+    line-height: 25px;
+}
+
+.idt_box_amount2 {
+    width: 100%;
+    text-align: center;
+    font-family: 'DosisMedium';
+    color: #0087ef;
+    font-size: 28px;
+    padding: 0 0 15px 0;
+    line-height: 30px;
+}
+
+.idt_box_text2 {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-family: 'DosisMedium';
+    color: #0087ef;
+    font-size: 18px;
+}
+
+.inv_dash_bot {
+    width: 100%;
+    float: left;
+}
+
+.invest_box1 {
+    width: 67%;
+    float: left;
+    padding: 0 1% 0 0;
+}
+
+.invest_box2 {
+    width: 33%;
+    float: left;
+    padding: 0 0 0 1%;
+}
+
+.inv_cont {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.inv_cont_heading {
+    width: 100%;
+    float: left;
+    background: #0087ef;
+    color: #fff;
+    padding: 8px 0 8px 3%;
+    font-size: 18px;
+    font-family: 'DosisMedium';
+}
+
+.inv_data {
+    width: 100%;
+    float: left;
+    padding: 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.inv_data table tr td {
+    padding: 10px 10px;
+    text-align: left;
+    font-size: 17px;
+    border-top: 1px solid #ddd;
+    color: #5e5e5e;
+    font-family: 'DosisMedium';
+}
+
+.inv_data table tr:nth-child(2n+1) {
+    background: #f4f4f4;
+}
+
+.browse_invest_left {
+    width: 25%;
+    float: left;
+}
+
+.bri_box1 {
+    width: 100%;
+    float: left;
+    padding: 0 0 10px 0;
+}
+
+.bri_box_inner {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.bri_box_heading {
+    width: 100%;
+    float: left;
+    font-family: 'DosisSemiBold';
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 0 7px 3%;
+    background: #0087ef
+}
+
+.bri_box_inside {
+    width: 100%;
+    float: left;
+    padding: 10px 2%;
+}
+
+.bri_box2 {
+    width: 100%;
+    float: left;
+}
+
+.bri_box2_inner {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.bri_box2_heading {
+    width: 100%;
+    float: left;
+    font-family: 'DosisSemiBold';
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 0 7px 3%;
+    background: #0087ef
+}
+
+.bri_box2_inside {
+    width: 100%;
+    float: left;
+    padding: 10px 2%;
+}
+
+.bri_box2_intrest_wrap {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #c4c4c4;
+    padding: 0 0 10px 0
+}
+
+.bri_box2_sub_heading {
+    width: 100%;
+    float: left;
+    font-family: 'DosisSemiBold';
+    font-size: 17px;
+    color: #353535;
+    padding: 0 0 15px 0;
+    line-height: 17px;
+}
+
+.bri_box2_list {
+    width: 100%;
+    float: left;
+    font-family: 'DosisMedium';
+    color: #353535;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.bri_box2_row {
+    width: 100%;
+    float: left;
+    padding: 0 0 0px 0;
+}
+
+.bri_box2_span {
+    width: 25px;
+    float: left;
+    line-height: 25px;
+    font-size: 15px;
+    font-family: 'DosisSemiBold';
+    border-radius: 50px;
+    text-align: center;
+    margin: -4px 8px 0 0;
+    color: #fff;
+}
+
+.bg_light_blue {
+    background: #71c1f1;
+}
+
+.bg_blue {
+    background: #609cc1;
+}
+
+.bg_green {
+    background: #9db756;
+}
+
+.bg_light_green {
+    background: #addf6c;
+}
+
+.bg_orange {
+    background: #edb500;
+}
+
+.checkbox {
+    margin: 5px 0 5px 0 !important;
+}
+
+.bri_box2_term_wrap {
+    width: 100%;
+    float: left;
+    border-bottom: 1px solid #c4c4c4;
+    padding: 15px 0 10px 0;
+}
+
+.bri_button {
+    width: 100%;
+    float: left;
+    padding: 10px 20%;
+}
+
+.blue_bttn1 {
+    width: 100%;
+    float: left;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-family: 'DosisSemiBold';
+    border-radius: 4px;
+    line-height: 45px;
+    background: #0087ef;
+}
+
+.blue_bttn1:hover {
+    color: #fff;
+    text-decoration: none;
+    background: #0063b0;
+}
+
+.browse_invest_right {
+    width: 75%;
+    float: left;
+    padding: 10px 0 10px 3%;
+}
+
+.myinv_span {
+    width: 30px;
+    line-height: 25px;
+    float: left;
+    font-size: 14px;
+    font-family: 'DosisSemiBold';
+    border-radius: 12px;
+    text-align: center;
+    margin: -4px 8px 0 0;
+    color: #fff;
+}
+
+.my_inv_green {
+    color: #04b000 !important;
+}
+
+.my_inv_red {
+    color: #c10029 !important;
+}
+
+.My_profile_wrap {
+    width: 100%;
+    float: left;
+}
+
+.myp_row {
+    width: 100%;
+    float: left;
+    padding: 0 0 15px 0;
+}
+
+.myp_left {
+    width: 30%;
+    float: left;
+    color: #474747;
+    font-family: 'DosisMedium';
+    font-size: 16px;
+    padding: 5px 3% 0 0;
+    text-align: right;
+}
+
+.myp_right {
+    width: 50%;
+    float: left;
+}
+
+.myp_right input {
+    height: 40px !important;
+}
+
+.cp_bttn {
+    width: 180px;
+    text-align: center;
+    float: left;
+    color: #fff;
+    font-family: 'DosisBold';
+    font-size: 18px;
+    padding: 8px;
+    background: #0087ef;
+}
+
+.cp_bttn:hover {
+    text-decoration: none;
+    background: #1c639a;
+    color: #fff;
+}
+
+.trans_fund_wrap {
+    width: 100%;
+    float: left;
+}
+
+.trf_left {
+    width: 70%;
+    float: left;
+    padding: 0 3% 0 0;
+}
+
+.trf_left_inner {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.trf_left_head {
+    width: 100%;
+    float: left;
+    padding: 10px 0 10px 3%;
+    color: #fff;
+    background: #0087ef;
+    color: #fff;
+    font-family: 'DosisBold';
+    font-size: 20px;
+    border-bottom: 2px solid #005698
+}
+
+.trf_left_detail {
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+}
+
+.trf_left_row1 {
+    width: 100%;
+    float: left;
+    padding: 0 3% 15px 3%;
+    font-family: 'DosisRegular';
+    font-size: 18px;
+    color: #6b6b6b;
+}
+
+.trf_left_row1 span {
+    font-family: 'DosisBold';
+}
+
+.trf_left_bottom {
+    width: 100%;
+    float: left;
+}
+
+.trf_lm_row {
+    width: 100%;
+    float: left;
+    padding: 8px 3%;
+    border-top: 1px solid #d2e2ef;
+}
+
+.trf_lm_left {
+    width: 34%;
+    float: left;
+    padding: 0 4% 0 0;
+    font-family: 'DosisBold';
+    font-size: 16px;
+    color: #535353;
+}
+
+.trf_lm_right {
+    width: 60%;
+    float: left;
+    padding: 0 0 0 0;
+    font-family: 'DosisRegular';
+    font-size: 16px;
+    color: #535353;
+}
+
+.trf_inp {
+    width: 60% !important;
+    height: 40px !important;
+}
+
+.trf_lm_button {
+    width: 60%;
+    float: left;
+    padding: 0 0 0 34%;
+    font-family: 'DosisRegular';
+    font-size: 16px;
+    color: #535353;
+}
+
+.trf_right {
+    width: 30%;
+    float: left;
+    padding: 0 0 0 0;
+}
+
+.trf_right_inner {
+    width: 100%;
+    float: left;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    box-shadow: 0 0 0 1px rgba(0, 135, 239, 1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.trf_right_head {
+    width: 100%;
+    float: left;
+    padding: 10px 0 10px 5%;
+    color: #fff;
+    background: #0087ef;
+    color: #fff;
+    font-family: 'DosisBold';
+    font-size: 20px;
+    border-bottom: 2px solid #005698
+}
+
+.trf_right_detail {
+    width: 100%;
+    float: left;
+}
+
+.trf_right_row {
+    width: 100%;
+    float: left;
+    padding: 10px 5%;
+    font-family: 'DosisSemiBold';
+    font-size: 16px;
+}
+
+.trf_right_row a {
+    color: #0087ef;
+}
+
+.trf_right_row a:hover {
+    text-decoration: none;
+}
+
+.trf_right_row a img {
+    padding: 0 10px 0 0;
+    vertical-align: middle;
+    margin: -3px 0 0 0
+}
+
+.border_bottom {
+    border-bottom: 1px solid #d2e2ef;
+}
+
+
+/*End Investor Dashboard*/
+
+@media screen and (max-width:1160px) {
+    nav {
+        position: relative;
+        width: 600px;
+        margin: 8px auto 0 auto;
+    }
+    #cssmenu > ul > li > a {
+        padding: 10px;
+        font-size: 17px;
+        letter-spacing: 0;
+        font-family: 'DosisMedium';
+        text-decoration: none;
+        color: #8b8b8b;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    .hr_inner {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .ht_inner {
+        width: 96%;
+        margin: 0 auto;
+    }
+    .content_inner {
+        width: 96%;
+        margin: 0 auto;
+    }
+    .str_left {
+        width: 25%;
+        float: left;
+        padding: 0 3% 0 0;
+        font-size: 15px;
+        font-family: 'DosisMedium';
+        text-align: left;
+        color: #545454;
+    }
+    .str_right {
+        width: 60%;
+        float: left;
+    }
+    .st_row_bttn {
+        width: 75%;
+        float: left;
+        padding: 0 0 15px 25%;
+    }
+    .error_notfound img {
+        width: 100%;
+    }
+    .content_heading2 {
+        width: 60%;
+        float: left;
+        padding: 20px 0 10px 2%;
+        font-size: 25px;
+        font-family: 'DosisMedium';
+        color: #5d5d5d;
+    }
+    .clander_range_wrap {
+        width: 40%;
+        float: left;
+        padding: 20px 2% 0 0;
+    }
+}
+
+@media screen and (max-width:940px) {
+    .cdm_box1 {
+        width: 96%;
+        float: left;
+        padding: 0 2% 20px 2%;
+    }
+    .cdm_box2 {
+        width: 96%;
+        float: left;
+        padding: 0 2% 0 2%;
+    }
+    .browse_invest_left {
+        width: 30%;
+        float: left;
+    }
+    .browse_invest_right {
+        width: 70%;
+        float: left;
+        padding: 10px 0 10px 3%;
+    }
+}
+
+@media screen and (max-width:840px) {
+    .investor_logo {
+        width: 100%;
+        float: left;
+        text-align: center;
+        padding: 0 0 15px 0
+    }
+    .investor_menu {
+        width: 600px;
+        margin: 0 auto;
+        float: none;
+    }
+}
+
+@media screen and (max-width:805px) {
+    .content_heading2 {
+        width: 50%;
+        float: left;
+        padding: 20px 0 10px 2%;
+        font-size: 25px;
+        font-family: 'DosisMedium';
+        color: #5d5d5d;
+    }
+    .clander_range_wrap {
+        width: 50%;
+        float: left;
+        padding: 20px 2% 0 0;
+    }
+    .idt_box_heading1 {
+        width: 100%;
+        text-align: center;
+        font-family: 'DosisMedium';
+        color: #fff;
+        font-size: 20px;
+        padding: 0 0 20px 0;
+        line-height: 25px;
+    }
+    .idt_box_amount1 {
+        width: 100%;
+        text-align: center;
+        font-family: 'DosisMedium';
+        color: #fff;
+        font-size: 24px;
+        padding: 0 0 15px 0;
+        line-height: 30px;
+    }
+    .idt_box_text {
+        width: 100%;
+        float: left;
+        text-align: center;
+        font-family: 'DosisMedium';
+        color: #fff;
+        font-size: 16px;
+    }
+    .idt_box_heading2 {
+        width: 100%;
+        text-align: center;
+        font-family: 'DosisMedium';
+        color: #0087ef;
+        font-size: 20px;
+        padding: 0 0 20px 0;
+        line-height: 25px;
+    }
+    .idt_box_amount2 {
+        width: 100%;
+        text-align: center;
+        font-family: 'DosisMedium';
+        color: #0087ef;
+        font-size: 24px;
+        padding: 0 0 15px 0;
+        line-height: 30px;
+    }
+    .idt_box_text2 {
+        width: 100%;
+        float: left;
+        text-align: center;
+        font-family: 'DosisMedium';
+        color: #0087ef;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 46px;
+        text-align: center;
+        padding: 15px 0 0 0;
+        float: none;
+        display: block;
+    }
+    .logo2 {
+        display: none
+    }
+    .bri_box2_intrest_wrap {
+        width: 50%;
+        float: left;
+        border-bottom: 0px solid #c4c4c4;
+        padding: 0 0 10px 0
+    }
+    .bri_box2_term_wrap {
+        width: 50%;
+        float: left;
+        border-bottom: 0px solid #c4c4c4;
+        padding: 15px 0 10px 0;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .browse_invest_left {
+        width: 100%;
+        float: left;
+    }
+    .browse_invest_right {
+        width: 100%;
+        float: left;
+        padding: 10px 0 10px 2%;
+    }
+}
+
+@media screen and (max-width:730px) {
+    .str_left {
+        width: 100%;
+        float: left;
+        padding: 0 3% 8px 0;
+        font-size: 15px;
+        font-family: 'DosisMedium';
+        text-align: left;
+        color: #545454;
+    }
+    .str_right {
+        width: 100%;
+        float: left;
+    }
+    .st_row_bttn {
+        width: 100%;
+        float: left;
+        padding: 0 0 15px 0;
+    }
+    .invest_box1 {
+        width: 100%;
+        float: left;
+        padding: 0 0 20px 0;
+    }
+    .invest_box2 {
+        width: 100%;
+        float: left;
+        padding: 0 0 0 0;
+    }
+}
+
+@media screen and (max-width:690px) {
+    .idt_box {
+        width: 100%;
+        float: left;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 0 0 2px rgba(0, 135, 239, 1);
+        box-shadow: 0 0 0 2px rgba(0, 135, 239, 1);
+        margin: 13px 0 0 0;
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width:630px) {
+    nav {
+        position: relative;
+        width: 100%;
+        margin: 8px auto 0 auto;
+    }
+    .content_heading2 {
+        width: 100%;
+        float: left;
+        padding: 20px 0 10px 2%;
+        font-size: 25px;
+        font-family: 'DosisMedium';
+        color: #5d5d5d;
+    }
+    .clander_range_wrap {
+        width: 100%;
+        float: left;
+        padding: 20px 2% 20px 2%;
+    }
+    .investor_menu {
+        width: 100%;
+        margin: 0 auto;
+        float: none;
+    }
+    .logo_menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 46px;
+        text-align: center;
+        padding: 10px 0 0 0;
+        float: none
+    }
+    .logo2 {
+        display: none
+    }
+    nav {
+        width: 100%;
+    }
+    #cssmenu {
+        width: 100%
+    }
+    #cssmenu ul {
+        width: 100%;
+        display: none
+    }
+    #cssmenu ul li {
+        width: 100%;
+        border-top: 1px solid #e1e1e1
+    }
+    #cssmenu ul li:hover {
+        background: #363636;
+    }
+    #cssmenu ul ul li,
+    #cssmenu li:hover > ul > li {
+        height: auto
+    }
+    #cssmenu ul li a,
+    #cssmenu ul ul li a {
+        width: 100%;
+        border-bottom: 0
+    }
+    #cssmenu > ul > li {
+        float: none
+    }
+    #cssmenu ul ul li a {
+        padding-left: 25px
+    }
+    #cssmenu ul ul li {
+        background: #333!important;
+    }
+    #cssmenu ul ul li:hover {
+        background: #363636!important
+    }
+    #cssmenu ul ul ul li a {
+        padding-left: 35px
+    }
+    #cssmenu ul ul li a {
+        color: #ddd;
+        background: none
+    }
+    #cssmenu ul ul li:hover > a,
+    #cssmenu ul ul li.active > a {
+        color: #fff
+    }
+    #cssmenu ul ul,
+    #cssmenu ul ul ul {
+        position: relative;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        text-align: left
+    }
+    #cssmenu > ul > li.has-sub > a:after,
+    #cssmenu > ul > li.has-sub > a:before,
+    #cssmenu ul ul > li.has-sub > a:after,
+    #cssmenu ul ul > li.has-sub > a:before {
+        display: none
+    }
+    #cssmenu #head-mobile {
+        display: block;
+        padding: 23px;
+        color: #ddd;
+        font-size: 12px;
+        font-weight: 700
+    }
+    .button {
+        width: 55px;
+        height: 46px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        z-index: 12399994;
+    }
+    .button:after {
+        position: absolute;
+        top: 22px;
+        right: 20px;
+        display: block;
+        height: 8px;
+        width: 20px;
+        border-top: 2px solid #0087ef;
+        border-bottom: 2px solid #0087ef;
+        content: ''
+    }
+    .button:before {
+        -webkit-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        transition: all .3s ease;
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        display: block;
+        height: 2px;
+        width: 20px;
+        background: #0087ef;
+        content: ''
+    }
+    .button.menu-opened:after {
+        -webkit-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+        transition: all .3s ease;
+        top: 23px;
+        border: 0;
+        height: 2px;
+        width: 19px;
+        background: #0087ef;
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+    .button.menu-opened:before {
+        top: 23px;
+        background: #0087ef;
+        width: 19px;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg)
+    }
+    #cssmenu .submenu-button {
+        position: absolute;
+        z-index: 99;
+        right: 0;
+        top: 0;
+        display: block;
+        border-left: 1px solid #444;
+        height: 46px;
+        width: 46px;
+        cursor: pointer
+    }
+    #cssmenu .submenu-button.submenu-opened {
+        background: #262626
+    }
+    #cssmenu ul ul .submenu-button {
+        height: 34px;
+        width: 34px
+    }
+    #cssmenu .submenu-button:after {
+        position: absolute;
+        top: 22px;
+        right: 19px;
+        width: 8px;
+        height: 2px;
+        display: block;
+        background: #ddd;
+        content: ''
+    }
+    #cssmenu ul ul .submenu-button:after {
+        top: 15px;
+        right: 13px
+    }
+    #cssmenu .submenu-button.submenu-opened:after {
+        background: #fff
+    }
+    #cssmenu .submenu-button:before {
+        position: absolute;
+        top: 19px;
+        right: 22px;
+        display: block;
+        width: 2px;
+        height: 8px;
+        background: #ddd;
+        content: ''
+    }
+    #cssmenu ul ul .submenu-button:before {
+        top: 12px;
+        right: 16px
+    }
+    #cssmenu .submenu-button.submenu-opened:before {
+        display: none
+    }
+    #cssmenu ul ul ul li.active a {
+        border-left: none
+    }
+    #cssmenu > ul > li.has-sub > ul > li.active > a,
+    #cssmenu > ul ul > li.has-sub > ul > li.active > a {
+        border-top: none
+    }
+    .myp_left {
+        width: 40%;
+        float: left;
+        color: #474747;
+        font-family: 'DosisMedium';
+        font-size: 16px;
+        padding: 5px 3% 0 0;
+        text-align: right;
+    }
+    .myp_right {
+        width: 60%;
+        float: left;
+    }
+}
+
+@media screen and (max-width:630px) {
+    .bri_box2_intrest_wrap {
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid #c4c4c4;
+        padding: 0 0 10px 0
+    }
+    .bri_box2_term_wrap {
+        width: 100%;
+        float: left;
+        border-bottom: 1px solid #c4c4c4;
+        padding: 15px 0 10px 0;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .trf_left {
+        width: 100%;
+        float: left;
+        padding: 0 0 20px 0;
+    }
+    .trf_right {
+        width: 100%;
+        float: left;
+        padding: 0 0 0 0;
+    }
+}
+
+
+/*--new--*/
+
+.he-hr {
+    float: left;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.crv-con {
+    float: left;
+    padding: 10px;
+    width: 100%;
+}
+
+.crv-con a {
+    float: left;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.crv-con a:hover {
+    text-decoration: none;
+}
+
+.crv-con a:first-child {
+    border-bottom: 1px dotted #0087ef
+}
+
+.marg-top-bottom-10 {
+    margin: 10px 0;
+}
+
+.checkbox.checkbox-primary.ch-bt {
+    float: left;
+    width: auto;
+    margin: 0 !important;
+}

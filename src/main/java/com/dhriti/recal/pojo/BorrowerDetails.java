@@ -8,7 +8,7 @@ public class BorrowerDetails implements Serializable {
 
 	private String keyid;
 	
-	private String uid;
+	private long uid;
 	
 	private String respStatus;
 	// We use LoginToken as the definition of User ID, since UserID is a an
@@ -19,7 +19,7 @@ public class BorrowerDetails implements Serializable {
 
 	private String userToken;
 
-	private Double loanAmount;
+	private String loanAmount;
 
 	private String loanTerms;
 
@@ -77,11 +77,11 @@ public class BorrowerDetails implements Serializable {
 		this.keyid = keyid;
 	}
 
-	public String getUid() {
+	public long getUid() {
 		return uid;
 	}
 
-	public void setUid(String uid) {
+	public void setUid(long uid) {
 		this.uid = uid;
 	}
 
@@ -117,11 +117,11 @@ public class BorrowerDetails implements Serializable {
 		this.userToken = userToken;
 	}
 
-	public Double getLoanAmount() {
+	public String getLoanAmount() {
 		return loanAmount;
 	}
 
-	public void setLoanAmount(Double loanAmount) {
+	public void setLoanAmount(String loanAmount) {
 		this.loanAmount = loanAmount;
 	}
 
@@ -295,7 +295,18 @@ public class BorrowerDetails implements Serializable {
 
 	@Override
 	public String toString() {
-		return "UserLogin [loginToken=" + loginToken + ", password=" + password + ", userToken=" + userToken + "]";
+		return "BorrowerDetails [keyid=" + keyid + ", uid=" + uid + ", respStatus=" + respStatus + ", loginToken="
+				+ loginToken + ", password=" + password + ", userToken=" + userToken + ", loanAmount=" + loanAmount
+				+ ", loanTerms=" + loanTerms + ", profitRate=" + profitRate + ", monthlyInstallment="
+				+ monthlyInstallment + ", purpose=" + purpose + ", icNo=" + icNo + ", borrowerName=" + borrowerName
+				+ ", mobileNo=" + mobileNo + ", residenceAddress=" + residenceAddress + ", postalCode=" + postalCode
+				+ ", city=" + city + ", employmentType=" + employmentType + ", employerName=" + employerName
+				+ ", industry=" + industry + ", lengthService=" + lengthService + ", employerAddress=" + employerAddress
+				+ ", employerPostCode=" + employerPostCode + ", employerCity=" + employerCity + ", referralCode="
+				+ referralCode + ", bankName=" + bankName + ", accountNo=" + accountNo + ", accountHolderName="
+				+ accountHolderName + "]";
 	}
+
+	
 
 }

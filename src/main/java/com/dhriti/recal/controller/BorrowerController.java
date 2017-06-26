@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -41,14 +42,42 @@ public class BorrowerController implements Serializable {
 		return "borrower/signUp";
 	}
 	
+	@RequestMapping(value = "/borrower/dashboard", method = RequestMethod.GET)
+	public String dashboard(ModelMap model) {
+		return "borrower/dashboard";
+	}
+	
+	@RequestMapping(value = "/borrower/borrowing", method = RequestMethod.GET)
+	public String borrowing(ModelMap model) {
+		return "borrower/borrowing";
+	}
+	
+	@RequestMapping(value = "/borrower/borrowerTxHistory", method = RequestMethod.GET)
+	public String borrowerTxHistory(ModelMap model) {
+		return "borrower/borrowerTxHistory";
+	}
+	
+	@RequestMapping(value = "/borrower/borrowerRepayment", method = RequestMethod.GET)
+	public String borrowerRepayment(ModelMap model) {
+		return "borrower/borrowerRepayment";
+	}
+	
+	@RequestMapping(value = "/borrower/borrowerProfile", method = RequestMethod.GET)
+	public String borrowerProfile(ModelMap model) {
+		return "borrower/borrowerProfile";
+	}
+	
+	
+	
 	@RequestMapping(value = "/borrower/borrowerSignup", method = RequestMethod.POST)
 	public String saveRegistration(@ModelAttribute("userLogin") BorrowerDetails userLogin, BindingResult result, HttpServletRequest request) {
 
 		BorrowerDetails isUserCreated = borrowerService.createBorrowerUser(userLogin, request);
-		System.out.println("KeyId :: "+ isUserCreated.getKeyid());
-		System.out.println("Session Id 1 :: "+ request.getSession());
 		request.getSession().setAttribute("keyId", isUserCreated.getKeyid());
+		//request.getSession().setAttribute("uid", isUserCreated.getUid());
+		
 		LOG.info("Stauts : " + isUserCreated);
+		System.out.println("BORROWER DETAILS :: "+ userLogin.toString());
 		if (isUserCreated.getRespStatus().equals("SUCCESS_USR_REG")) {
 			return "redirect:/borrower/borrowerPersonalDetails";
 		} else {
@@ -66,12 +95,12 @@ public class BorrowerController implements Serializable {
 		 * model.addAttribute("industry","");
 		 * model.addAttribute("lenghtService","");
 		 */
-		
 		String  keyId = (String) request.getSession().getAttribute("keyId");
-		System.out.println("Session Id:: "+ request.getSession());
-		System.out.println("Session Key Id :"+ request.getSession().getAttribute("keyId"));
+		System.out.println("KeyId :: "+  keyId);
+		//long uid = (long) request.getSession().getAttribute("uid");
+		long uid = 166;
 		try {
-			model.addAttribute("bankNames", borrowerService.getBankNames(request, keyId));
+			model.addAttribute("bankNames", borrowerService.getBankNames(request, keyId, uid));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
