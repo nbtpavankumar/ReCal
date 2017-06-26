@@ -1,6 +1,8 @@
 package com.dhriti.recal.service;
 
-import com.dhriti.recal.pojo.UserLogin;
+import javax.servlet.http.HttpServletRequest;
+
+import com.dhriti.recal.pojo.BorrowerDetails;
 
 /**
  * @author Giridhar
@@ -13,6 +15,8 @@ public interface BorrowerService {
 	 * @param userLogin
 	 * @return
 	 */
-	Boolean createBorrowerUser(UserLogin userLogin);
+	BorrowerDetails createBorrowerUser(BorrowerDetails userLogin, HttpServletRequest request);
+
+	public String getBankNames(HttpServletRequest request, String keyId) throws Exception;
 
 }

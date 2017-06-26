@@ -457,6 +457,10 @@
             background: #e5f2ff;
         }
         
+         .amountTbl tr.selected
+         {
+         background: #e5f2ff;
+         }
         .amountTbl tr:hover td .btnChose {
             background: #575757;
             color: #fff;

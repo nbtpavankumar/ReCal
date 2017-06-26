@@ -73,7 +73,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-3">
-                                            <span class="amtLbl pull-right">RM <label id="valonc"> 5000 </label></span>
+                                            <span class="amtLbl pull-right">RM <label id="valonc"> 10000 </label></span>
                                         </div>
                                     </div>
                                 </div>
@@ -88,17 +88,17 @@
                                             <th></th>
                                         </tr>
                                         <tbody>
-                                            <tr>
+                                            <tr id="6months">
                                                 <td>6 months </td>
-                                                <td>4.30% - 17.30% p.a.</td>
-                                                <td>RM869- RM978</td>
+                                                <td>10% - 18% p.a.</td>
+                                                <td>RM916.66- RM983.33</td>
                                                 <td>
                                                 <input type="button" data-tenor="0" class="btn btnChose" name="tenor" value="Choose">
                                                   <!--  <a hidden="#" class="btn btnChose">Choose</a> --> 
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>6 months </td>
+                                            <tr id="9months">
+                                                <td>9 months </td>
                                                 <td>4.30% - 17.30% p.a.</td>
                                                 <td>RM869- RM978</td>
                                                 <td>
@@ -106,8 +106,8 @@
                                                    <!-- <a hidden="#" class="btn btnChose">Choose</a> --> 
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>6 months </td>
+                                            <tr id="12months">
+                                                <td>12 months </td>
                                                 <td>4.30% - 17.30% p.a.</td>
                                                 <td>RM869- RM978</td>
                                                 <td>
@@ -115,8 +115,8 @@
                                                      <!-- <a hidden="#" class="btn btnChose">Choose</a> --> 
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>6 months </td>
+                                            <tr id="24months">
+                                                <td>24 months </td>
                                                 <td>4.30% - 17.30% p.a.</td>
                                                 <td>RM869- RM978</td>
                                                 <td>
@@ -129,6 +129,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="selectedOptions" id="selectedOptions">
                         <div class="amounterm aboutyourself">
                             <h3 class="textCenter amountBtm"> <img src="<c:url value="/resources/adminassets/images/manAdd.png" />"> Sign up</h3>
                             <div class=" aboutdata signUpformCnt">
@@ -161,7 +162,7 @@
    										<label class="col-sm-2 control-label">Password</label>
    										<div class="col-sm-10">
        										<div class="formFieldCont">
-									           <form:password path="password" id="idPassword" required="true" class="form-control" placeholder="Enter Password" data-validation="custom"  data-validation-error-msg="Please enter the Password"/>
+									           <form:password path="password" id="idPassword" required="true" class="form-control" placeholder="Enter Password" data-validation="required length" data-validation-length="min8"  data-validation-error-msg="Please enter the Password"/>
 									           <span class="fldIcon"> <img src="<c:url value="/resources/adminassets/images/ic5.png" />" > </span>
 									        </div>
 									    </div>
@@ -170,8 +171,8 @@
                                     <div class="form-group">
    										<label class="col-sm-2 control-label">Confirm Password</label>
    										<div class="col-sm-10">
-       										<div class="formFieldCont">
-									           <form:password path="" id="idConfirmPassword" required="true" class="form-control" placeholder="Enter Confirm Password" data-validation="custom"  data-validation-error-msg="Please enter confirm Password"/>
+       										<div class="formFieldCont">       										
+									           <form:password path="" id="idConfirmPassword" required="true" class="form-control" placeholder="Enter Confirm Password" data-validation="confirmation" data-validation-confirm="password" />
 									           <span class="fldIcon"> <img src="<c:url value="/resources/adminassets/images/ic5.png" />" > </span>
 									        </div>
 									    </div>
@@ -391,6 +392,14 @@
     <script type="text/javascript" src="<c:url value="/resources/adminassets/js/bootstrap.min.js"/>"></script>
     <script type="text/javascript" src="<c:url value="/resources/adminassets/btRangeSlider/bootstrap-slider.min.js"/>"></script>
     <script>
+    $.validate({
+        lang: 'en'
+      });
+    // min & max interest rates
+ var minRates = {six:0.10,nine:0.10,twelve:0.10,twentyfour:0.10};
+    var maxRates = {six:0.18,nine:0.18,twelve:0.18,twentyfour:0.18};
+    var selectedOptions = {};
+    selectedOptions.amount=10000;
         $('#stateDropdown > li > a').click(function (e) {
             $(this).closest('.mdStateDrop').fadeOut();
             var attrB = $(this).attr('href');
@@ -410,13 +419,97 @@
             }
         });
         $("#ex1").on("slide", function(slideEvt) {
-        	$("#valonc").text(slideEvt.value);
+        	// get slider value and update div
+        	var selectedAmount = slideEvt.value;
+        	$("#valonc").text(selectedAmount);
+        	selectedOptions.amount = selectedAmount;
+        	// update table values accroding to slider values
+        //	$('#3months td')[2].text(getAmount(selectedAmount,3));
+        	$($('#6months td')[2]).text(getAmount(selectedAmount,6));
+        	$($('#9months td')[2]).text(getAmount(selectedAmount,9));
+        	$($('#12months td')[2]).text(getAmount(selectedAmount,12));
+        	$($('#24months td')[2]).text(getAmount(selectedAmount,24));
+        	
+        	
         });
         $(".btnChose").click(function(){
         	$(".btnChose").val("Choose");
+        	$(".btnChose").parent().parent().removeClass('selected');
         	$(this).val("Selected");
+        	$(this).parent().parent().addClass('selected');
         	$("#myoption").val($(this).data('tenor'));
         });
+        function getAmount(amount,months)
+        {
+        	// calculate amount based on the interest rates
+        	// get the min and max interest and calculate 
+        	var minRatePercent =0;
+        	var maxRatePercent =0;
+        	if(months==6)
+        		{
+        		minRatePercent = minRates.six;
+        		}
+        	if(months==9)
+    		{
+    		minRatePercent = minRates.nine;
+    		}
+        	if(months==12)
+    		{
+    		minRatePercent = minRates.twelve;
+    		}
+        	if(months==24)
+    		{
+    		minRatePercent = minRates.twentyfour;
+    		}
+        	
+        	if(months==6)
+    		{
+    		maxRatePercent = maxRates.six;
+    		}
+    	if(months==9)
+		{
+		maxRatePercent = maxRates.nine;
+		}
+    	if(months==12)
+		{
+		maxRatePercent = maxRates.twelve;
+		}
+    	if(months==24)
+		{
+		maxRatePercent = maxRates.twentyfour;
+		}
+        	var minRate = 'RM' + calculateInstalment(amount,minRatePercent,0,months);
+        	var maxRate = 'RM'+calculateInstalment(amount,maxRatePercent,0,months);
+        	
+        	return minRate + '- '+maxRate;
+        }
+        function calculateInstalment(amount, rate, processingFees, term) {
+            var totalYear = term / 12;
+            var loanAmount = parseFloat(amount).toFixed(2);
+            var processingFeeInAmount = (parseFloat(loanAmount) * processingFees).toFixed(2);
+            var flatRate = parseFloat(rate).toFixed(4);
+            var totalInterestRate = (parseFloat(loanAmount) * parseFloat(flatRate));
+            console.log("intrest rate"+ totalInterestRate);
+            console.log("amnt"+ loanAmount);
+            console.log("year"+ totalYear);
+            
+            var MonthlyPayment = ((parseFloat(loanAmount) + (parseFloat(totalInterestRate)) * totalYear) / term).toFixed(2); // exclude processing fees
+            var totalRepayment = ((MonthlyPayment * term) + parseFloat(processingFeeInAmount)).toFixed(2);
+
+            return parseFloat(MonthlyPayment).toFixed(0);
+        }
+
+        function saveSelectedOptions()
+        {
+        	// save selected options in an object to submit to server
+        	
+        	//selectedOptions.amount = $('').text();
+        	selectedOptions.installment = $($('.amountTbl tr.selected td')[2]).text();
+        	selectedOptions.term = $($('.amountTbl tr.selected')[2]).data('months');
+        	selectedOptions.minInterest = 0;
+        	selectedOptions.maxInterest = 0;
+        }
+
     </script>
 </body>
 
